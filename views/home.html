@@ -1,0 +1,12 @@
+<div data-options="dxView : { name: 'home', title: '@appletaxi' }">
+
+    <div data-options="dxContent : { targetPlaceholder: 'content' }">
+        <div class="main-buttons">
+            <h1 data-bind="text: '@order_taxi'"></h1>
+            <div data-bind="dxButton: { text: '@call', clickAction: call }"></div>
+            <div data-bind="dxButton: { text: '@write', clickAction: { view: 'send_email' } }"></div>
+        </div>
+    </div>
+</div>
+
+

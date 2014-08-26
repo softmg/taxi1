@@ -1,0 +1,33 @@
+<div data-options="dxView : { name: 'send_email', title: '@send_email' }">
+
+    <div data-options="dxContent : { targetPlaceholder: 'content' }">
+        <div data-bind="dxScrollView: { }" class="main-content">
+
+            <div class="phone-value" data-bind="text: dis_phone"></div>
+
+            <div class="dx-fieldset">
+                <div class="dx-field">
+                    <div id="nameInput" class="dx-field-value" data-bind="dxTextBox: { value: name, placeholder: '@name' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div id="datetimeDepartureInput" class="dx-field-value" data-bind="dxDateBox: { value: datetime_departure, format: 'datetime', useCalendar: false, placeholder: '@datetime_departure' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div id="placeDepartureInput" class="dx-field-value" data-bind="dxTextBox: { value: place_departure, placeholder: '@place_departure' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div id="destinationInput" class="dx-field-value" data-bind="dxTextBox: { value: destination, placeholder: '@destination' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div id="commentInput" class="dx-field-value" data-bind="dxTextArea: { value: comment, placeholder: '@comment' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div data-bind="dxButton: { text: '@send', clickAction: sendEmail }"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
