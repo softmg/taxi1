@@ -35,9 +35,30 @@ Taxi1.send_email = function(params) {
         );
 
        //var html = ' ' + name() + ' ' + taxi_type().text + ' ' + datetime_departure_loc + ' ' + place_departure() + ' ' + destination() + ' ' + comment();
+        var send_email_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_send_email;
 
-        alert(html);
+        $.ajax({
+            type: "POST",
+            data:{
+                name: name(),
+                taxi_type: taxi_type().text,
+                datetime_departure: datetime_departure_loc,
+                place_departure: place_departure(),
+                destination: destination(),
+                comment: comment(),
+            },
+            url: send_email_url,
+            error: function(data){
+                alert('error');
+            },
+            success: function(data){
+                alert('Заказ успешно отправлен');
+            }
+        })
+        //alert(html);
     }
+
+
 
     function call() {
 

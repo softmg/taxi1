@@ -1,8 +1,11 @@
 ﻿window.Taxi1 = $.extend(true, window.Taxi1, {
     "config": {
         "navigationType": "simple",
-        "dis_email": "o4kan@ya.ru",
-        "dis_phone": "+79099057651",
+        "backend_url": "http://taxi_backend/app_dev.php/",
+        "backend_uri_phone": "config/phone",
+        "backend_uri_send_email": "send_email",
+        "dis_email": "test@test.tt",
+        "dis_phone": "+7123456789",
         "taxi_type": [{text : "vip"}, {text : "бизнес"}, {text : "эконом"}],
         "dis_email_content" :   'Пришёл новый заказ от клиента: <b>%name%</b><br /> \
                                 Уровень комфорта: %taxi_type%<br /> \
