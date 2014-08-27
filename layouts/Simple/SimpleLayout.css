@@ -31,13 +31,14 @@
 }*/
 
 /* ios */
-
+.dx-theme-ios .simple-layout .layout-header,
 .dx-theme-ios.dx-version-major-5 .simple-layout .layout-header,
 .dx-theme-ios.dx-version-major-6 .simple-layout .layout-header {
     top: 0;
     height: 44px;
 }
 
+.dx-theme-ios .simple-layout .layout-content,
 .dx-theme-ios.dx-version-major-5 .simple-layout .layout-content,
 .dx-theme-ios.dx-version-major-6 .simple-layout .layout-content {
     top: 44px;
@@ -55,6 +56,7 @@
     bottom: 0;
 }*/
 
+.dx-theme-ios .simple-layout .view-toolbar-bottom.dx-toolbar,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-toolbar-bottom.dx-toolbar,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-toolbar-bottom.dx-toolbar {
     background: transparent;
@@ -62,21 +64,25 @@
     margin-bottom: 10px;
 }
  
+.dx-theme-ios.simple-layout .view-footer,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer {
     position: static;
 }
 
+.dx-theme-ios .simple-layout .view-footer .dx-toolbar,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-toolbar,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-toolbar {
     height: 57px;
 }
 
+.dx-theme-ios .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center {
     width: 100%;
 }
 
+.dx-theme-ios .simple-layout .view-footer .dx-button,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-button,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-button {
     width: 97%;
@@ -84,6 +90,7 @@
     height: 40px;
 }
 
+.dx-theme-ios .simple-layout .view-footer .dx-button .dx-button-content,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-button .dx-button-content,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-button .dx-button-content {
     height: 44px;
@@ -92,6 +99,7 @@
     box-sizing: border-box;
 }
 
+.dx-theme-ios .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text {
     font-size: 20px;

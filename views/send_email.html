@@ -1,13 +1,18 @@
 <div data-options="dxView : { name: 'send_email', title: '@send_email' }">
 
     <div data-options="dxContent : { targetPlaceholder: 'content' }">
-        <div data-bind="dxScrollView: { }" class="main-content">
+        <div class="main-content">
 
-            <div class="phone-value" data-bind="text: dis_phone"></div>
+            <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
+
+            <div data-bind="dxButton: { text: '@call', clickAction: call }"></div>
 
             <div class="dx-fieldset">
                 <div class="dx-field">
                     <div id="nameInput" class="dx-field-value" data-bind="dxTextBox: { value: name, placeholder: '@name' }"></div>
+                </div>
+                <div class="dx-field">
+                    <div class="dx-field-value" data-bind="dxRadioGroup:{dataSource: taxi_type_ar, value: taxi_type, layout:'horizontal'}"></div>
                 </div>
                 <div class="dx-field">
                     <div id="datetimeDepartureInput" class="dx-field-value" data-bind="dxDateBox: { value: datetime_departure, format: 'datetime', useCalendar: false, placeholder: '@datetime_departure' }"></div>

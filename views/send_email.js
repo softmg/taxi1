@@ -2,30 +2,56 @@
 
 Taxi1.send_email = function(params) {
 
-    var dis_phone = Taxi1.config.dis_phone
+    var dis_phone = Taxi1.config.dis_phone;
+    var taxi_type_ar = Taxi1.config.taxi_type;
+    var dis_email_content = Taxi1.config.dis_email_content;
+
+    var format_date = Globalize.culture().calendar.patterns.d;
 
     var name = ko.observable(''),
-        datetime_departure = ko.observable(''),
+        datetime_departure = ko.observable(),
         place_departure = ko.observable(''),
         destination = ko.observable(''),
-        comment = ko.observable('');
+        comment = ko.observable(''),
+        taxi_type = ko.observable(taxi_type_ar[0]);
 
 
     function viewShown() {
         $("#nameInput").data("dxTextBox").focus();
     }
 
+    datetime_departure.optionChanged= function(e){
+        alert(e);
+    }
+
     function sendEmail() {
-       var html = ' ' + name() + ' ' + datetime_departure() + ' ' + place_departure() + ' ' + destination() + ' ' + comment();
+
+        var datetime_departure_loc = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm' );
+        
+        var html = str_replace(
+            ['%name%', '%taxi_type%', '%datetime_departure%', '%place_departure%', '%destination%', '%comment%'],
+            [name(), taxi_type().text, datetime_departure_loc, place_departure(), destination(), comment()],
+            dis_email_content
+        );
+
+       //var html = ' ' + name() + ' ' + taxi_type().text + ' ' + datetime_departure_loc + ' ' + place_departure() + ' ' + destination() + ' ' + comment();
 
         alert(html);
+    }
+
+    function call() {
+
     }
 
 
     return {
         dis_phone: dis_phone,
+        call: call,
+        format_date: format_date,
 
         name: name,
+        taxi_type_ar: taxi_type_ar,
+        taxi_type: taxi_type,
         datetime_departure: datetime_departure,
         place_departure: place_departure,
         destination: destination,
@@ -36,3 +62,41 @@ Taxi1.send_email = function(params) {
         viewShown: viewShown
     };
 };
+
+function str_replace ( search, replace, subject ) {	// Replace all occurrences of the search string with the replacement string
+	//
+	// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+	// +   improved by: Gabriel Paderni
+
+	if(!(replace instanceof Array)){
+		replace=new Array(replace);
+		if(search instanceof Array){//If search	is an array and replace	is a string, then this replacement string is used for every value of search
+			while(search.length>replace.length){
+				replace[replace.length]=replace[0];
+			}
+		}
+	}
+
+	if(!(search instanceof Array))search=new Array(search);
+	while(search.length>replace.length){//If replace	has fewer values than search , then an empty string is used for the rest of replacement values
+		replace[replace.length]='';
+	}
+
+	if(subject instanceof Array){//If subject is an array, then the search and replace is performed with every entry of subject , and the return value is an array as well.
+		for(k in subject){
+			subject[k]=str_replace(search,replace,subject[k]);
+		}
+		return subject;
+	}
+
+	for(var k=0; k<search.length; k++){
+		var i = subject.indexOf(search[k]);
+		while(i>-1){
+			subject = subject.replace(search[k], replace[k]);
+			i = subject.indexOf(search[k],i);
+		}
+	}
+
+	return subject;
+
+}

@@ -73,7 +73,7 @@ Globalize.addCultureInfo( "ru", "default", {
 				T: "H:mm:ss",
 				f: "d MMMM yyyy 'г.' H:mm",
 				F: "d MMMM yyyy 'г.' H:mm:ss",
-				Y: "MMMM yyyy"
+				Y: "MMMM yyyy",
 			}
 		}
 	}

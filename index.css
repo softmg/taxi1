@@ -23,11 +23,55 @@ body
     margin-bottom: 40px;
 }
 
-#viewport .main-buttons .dx-button
+#viewport .main-buttons .dx-button,
+#viewport .dx-button
 {
     width: 80%;
     margin-bottom: 40px;
     padding: 10px;
+}
+
+#viewport .main-content .dx-button
+{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#viewport .main-content {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: auto;
+    text-align: center;
+}
+
+#viewport.dx-theme-win8 .main-content {
+    top: 18px;
+}
+
+#viewport.dx-theme-android .main-content {
+    top: 20px;
+}
+
+#viewport.dx-theme-ios.dx-version-major-6 .main-content {
+    top: 18px;
+}
+
+#viewport.dx-theme-ios.dx-version-major-7 .main-content {
+    top: 16px;
+}
+
+#viewport.dx-theme-tizen .main-content {
+    top: 16px;
+}
+
+#viewport.dx-theme-generic .main-content {
+    top: 18px;
+}
+
+.dx-viewport.dx-theme-ios.dx-version-major-7 .main-content {
+    background-color: #EFEFF4;
 }
 
 .dx-viewport.dx-theme-ios.dx-version-major-7 .main-content {
@@ -70,3 +114,14 @@ body
     min-height: 35px;
 }
 
+.dx-field-value:not(.dx-switch):not(.dx-checkbox):not(.dx-button){
+    width: 90%;
+    float: none;
+    margin: auto;
+}
+.dx-field-value.dx-radio-group{
+    width: 100% !important;
+}
+.dx-field-value.dx-radio-group .dx-radio-button{
+    margin-right: 0px;
+}
