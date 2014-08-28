@@ -25,7 +25,7 @@ var mycallback = function(data)
 
 function initData()
 {
-    var phone_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_phone;
+    var phone_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_all;
     $.ajax({
         type: "get",
         dataType: 'jsonp',
@@ -36,7 +36,8 @@ function initData()
               alert('error');
           },
         success: function(data){
-            Taxi1.config.dis_phone = data.value;
+            Taxi1.config.dis_phone = data.phone;
+            Taxi1.config.discount = data.discount;
         }
     })
 }

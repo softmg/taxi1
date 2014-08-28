@@ -3,6 +3,7 @@
 Taxi1.send_email = function(params) {
 
     var dis_phone = Taxi1.config.dis_phone;
+    var discount = Globalize.localize('discount') + ' ' + Taxi1.config.discount;
     var taxi_type_ar = Taxi1.config.taxi_type;
     var dis_email_content = Taxi1.config.dis_email_content;
 
@@ -48,6 +49,9 @@ Taxi1.send_email = function(params) {
                 comment: comment(),
             },
             url: send_email_url,
+            dataType: 'jsonp',
+            timeout: 3000,
+            jsonp: "mycallback",
             error: function(data){
                 alert('error');
             },
@@ -58,6 +62,10 @@ Taxi1.send_email = function(params) {
         //alert(html);
     }
 
+    var mycallback = function(data)
+    {
+        alert("Here: "+data.name);
+    }
 
 
     function call() {
@@ -67,6 +75,7 @@ Taxi1.send_email = function(params) {
 
     return {
         dis_phone: dis_phone,
+        discount: discount,
         call: call,
         format_date: format_date,
 

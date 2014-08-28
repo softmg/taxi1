@@ -2,6 +2,8 @@
 
 Taxi1.home = function(params) {
 
+    var dis_phone = Taxi1.config.dis_phone;
+
     function write() {
 
     }
@@ -17,6 +19,8 @@ Taxi1.home = function(params) {
 
 
     return {
+        phone: 'tel:' + dis_phone,
+
         write: write,
         call: call,
 
