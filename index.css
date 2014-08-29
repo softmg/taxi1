@@ -125,3 +125,7 @@ body
 .dx-field-value.dx-radio-group .dx-radio-button{
     margin-right: 0px;
 }
+
+.button-wrap .dx-button{
+    margin: 20px;
+}

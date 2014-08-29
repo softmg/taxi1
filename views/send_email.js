@@ -74,7 +74,7 @@ Taxi1.send_email = function(params) {
 
 
     return {
-        dis_phone: dis_phone,
+        phone: 'tel:' + dis_phone,
         discount: discount,
         call: call,
         format_date: format_date,

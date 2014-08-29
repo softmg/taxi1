@@ -1,11 +1,13 @@
 <div data-options="dxView : { name: 'send_email', title: '@send_email' }">
 
-    <div data-options="dxContent : { targetPlaceholder: 'content' }">
+    <div data-bind="dxScrollView: { }" data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="main-content">
 
             <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
 
-            <div data-bind="dxButton: { text: '@call', clickAction: call }"></div>
+            <a data-bind="attr:{href: phone}">
+              <div data-bind="dxButton: { text: '@call' }"></div>
+            </a>
 
             <div class="dx-fieldset">
                 <div class="dx-field">
@@ -27,7 +29,9 @@
                     <div id="commentInput" class="dx-field-value" data-bind="dxTextArea: { value: comment, placeholder: '@comment' }"></div>
                 </div>
                 <div class="dx-field">
-                    <div data-bind="dxButton: { text: '@send', clickAction: sendEmail }"></div>
+                  <div class="button-wrap" data-bind="dxAction: sendEmail">
+                    <div data-bind="dxButton: { text: '@send' }"></div>
+                  </div>
                 </div>
                 <div class="view-footer" data-options="dxContent : { targetPlaceholder: 'view-footer' } " >
                   <div class="view-toolbar-bottom" data-bind="text: discount"></div>
