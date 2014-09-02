@@ -53,7 +53,7 @@ Taxi1.send_email = function(params) {
             timeout: 3000,
             jsonp: "mycallback",
             error: function(data){
-                alert('error');
+                alert('error2');
             },
             success: function(data){
                 alert('Заказ успешно отправлен');
