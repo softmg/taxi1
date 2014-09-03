@@ -41,7 +41,7 @@ function initData()
                         if(x.status==0){
                             alert('You are offline!!\n Please Check Your Network.');
                         }else if(x.status==404){
-                            alert('Requested URL not found.');
+                            alert('Requested URL not found.' + phone_url);
                         }else if(x.status==500){
                             alert('Internel Server Error.');
                         }else if(e=='parsererror'){
