@@ -4,8 +4,6 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
-    initData();
-
     document.addEventListener("deviceready", function() {
         navigator.splashscreen.hide();
         //initData();
@@ -15,6 +13,10 @@ $(function() {
         namespace: Taxi1,
         navigationType: Taxi1.config.navigationType
     });
+});
+
+$(document).ready(function(){
+    initData();
 });
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
