@@ -1,13 +1,11 @@
 <div data-options="dxView : { name: 'send_email', title: '@send_email' }">
 
-    <div data-bind="dxScrollView: { }" data-options="dxContent : { targetPlaceholder: 'content' }">
+    <div data-bind="dxScrollView: { showScrollBar: true }" data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="main-content">
 
             <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
 
-            <a data-bind="attr:{href: phone}">
-              <div data-bind="dxButton: { text: '@call' }"></div>
-            </a>
+            <div data-bind="dxButton: { text: '@call' }"></div>
 
             <div class="dx-fieldset">
                 <div class="dx-field">
@@ -38,6 +36,7 @@
                 </div>
             </div>
 
+            <div style='clear:both'></div>
         </div>
     </div>
 </div>
