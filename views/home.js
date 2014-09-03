@@ -27,17 +27,17 @@ Taxi1.home = function(params) {
             jsonp: "mycallback",
             error: function(x,e){
                         if(x.status==0){
-                            notifyAlert('You are offline!!\n Please Check Your Network.', 'Error');
+                            alert('You are offline!!\n Please Check Your Network.');
                         }else if(x.status==404){
-                            notifyAlert('Requested URL not found.', 'Error');
+                            alert('Requested URL not found.');
                         }else if(x.status==500){
-                            notifyAlert('Internel Server Error.', 'Error');
+                            alert('Internel Server Error.');
                         }else if(e=='parsererror'){
-                            notifyAlert('Error.\nParsing JSON Request failed. '+x.status, 'Error');
+                            alert('Error.\nParsing JSON Request failed. '+x.status);
                         }else if(e=='timeout'){
-                            notifyAlert('Request Time out.');
+                            alert('Request Time out.');
                         }else {
-                            notifyAlert('Unknow Error.\n'+x.responseText, 'Error');
+                            alert('Unknow Error.\n'+x.responseText);
                         }
                     },
             success: function(data){
