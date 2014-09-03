@@ -13,6 +13,9 @@ $(function() {
         namespace: Taxi1,
         navigationType: Taxi1.config.navigationType
     });
+
+    Taxi1.app.router.register(":view", { view: "home" });
+    Taxi1.app.navigate();
 });
 
 $(document).ready(function(){
@@ -40,8 +43,6 @@ function initData()
         success: function(data){
             Taxi1.config.dis_phone = data.phone;
             Taxi1.config.discount = data.discount;
-            Taxi1.app.router.register(":view", { view: "home" });
-            Taxi1.app.navigate();
         }
     })
 }
