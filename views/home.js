@@ -17,7 +17,6 @@ Taxi1.home = function(params) {
         //$("#billTotalInput").data("dxNumberBox").focus();
     }
 
-
     return {
         phone: 'tel:' + dis_phone,
 
