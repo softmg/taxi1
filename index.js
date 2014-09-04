@@ -13,13 +13,13 @@ $(function() {
         namespace: Taxi1,
         navigationType: Taxi1.config.navigationType
     });
-
-    Taxi1.app.router.register(":view", { view: "home" });
-    Taxi1.app.navigate();
 });
 
 $(document).ready(function(){
-    initData();
+    _initData(function(){
+        Taxi1.app.router.register(":view", { view: "home_unactive" });
+        Taxi1.app.navigate();
+    });
 });
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
@@ -29,7 +29,7 @@ var mycallback = function(data)
     alert("Here: "+data.name);
 }
 
-function initData()
+function _initData(callback_error)
 {
     var phone_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_all;
     $.ajax({
@@ -39,22 +39,63 @@ function initData()
         jsonp: "mycallback",
         error: function(x,e){
                         if(x.status==0){
-                            alert('You are offline!!\n Please Check Your Network.');
+                            console.log('You are offline!!\n Please Check Your Network.');
                         }else if(x.status==404){
-                            alert('Requested URL not found.' + phone_url);
+                            console.log('Requested URL not found.' + phone_url);
                         }else if(x.status==500){
-                            alert('Internel Server Error.');
+                            console.log('Internel Server Error.');
                         }else if(e=='parsererror'){
-                            alert('Error.\nParsing JSON Request failed. '+x.status);
+                            console.log('Error.\nParsing JSON Request failed. '+x.status);
                         }else if(e=='timeout'){
-                            alert('Request Time out.');
+                            console.log('Request Time out.');
                         }else {
-                            alert('Unknow Error.\n'+x.responseText);
+                            console.log('Unknow Error.\n'+x.responseText);
+                        }
+                        if(typeof(callback_error) !== 'undefined')
+                        {
+                          callback_error();
                         }
                     },
         success: function(data){
-            Taxi1.config.dis_phone = data.phone;
-            Taxi1.config.discount = data.discount;
+            Taxi1.config.dis_phone  = data.phone;
+            Taxi1.config.discount   = data.discount;
+            Taxi1.app.router.register(":view", { view: "home" });
+            Taxi1.app.navigate();
         }
     })
 }
+
+/*function str_replace ( search, replace, subject ) {	// Replace all occurrences of the search string with the replacement string
+
+	if(!(replace instanceof Array)){
+		replace=new Array(replace);
+		if(search instanceof Array){//If search	is an array and replace	is a string, then this replacement string is used for every value of search
+			while(search.length>replace.length){
+				replace[replace.length]=replace[0];
+			}
+		}
+	}
+
+	if(!(search instanceof Array))search=new Array(search);
+	while(search.length>replace.length){//If replace	has fewer values than search , then an empty string is used for the rest of replacement values
+		replace[replace.length]='';
+	}
+
+	if(subject instanceof Array){//If subject is an array, then the search and replace is performed with every entry of subject , and the return value is an array as well.
+		for(k in subject){
+			subject[k]=str_replace(search,replace,subject[k]);
+		}
+		return subject;
+	}
+
+	for(var k=0; k<search.length; k++){
+		var i = subject.indexOf(search[k]);
+		while(i>-1){
+			subject = subject.replace(search[k], replace[k]);
+			i = subject.indexOf(search[k],i);
+		}
+	}
+
+	return subject;
+
+}*/

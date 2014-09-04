@@ -3,14 +3,12 @@
     <div data-options="dxContent : { targetPlaceholder: 'content' }">
         <div class="main-buttons">
             <h1 data-bind="text: '@order_taxi'"></h1>
-            <a data-bind="attr:{href: phone}">
-              <div data-bind="dxButton: { text: '@call' }"></div>
-            </a>
+          <a class="tel_call" data-bind="attr:{href: phone}" style="display:none;"></a>
+          <div class="button-wrap" data-bind="dxAction: 'call'">
+            <div data-bind="dxButton: { text: '@call' }"></div>
+          </div>
           <div class="button-wrap" data-bind="dxAction: '#send_email'">
             <div data-bind="dxButton: { text: '@write' }"></div>
-          </div>
-          <div class="button-wrap" data-bind="dxAction: test">
-            <div data-bind="dxButton: { text: '@test' }"></div>
           </div>
         </div>
     </div>

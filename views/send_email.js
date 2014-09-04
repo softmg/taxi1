@@ -28,14 +28,13 @@ Taxi1.send_email = function(params) {
     function sendEmail() {
 
         var datetime_departure_loc = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm' );
-        
-        var html = str_replace(
+
+        /*var html = str_replace(
             ['%name%', '%taxi_type%', '%datetime_departure%', '%place_departure%', '%destination%', '%comment%'],
             [name(), taxi_type().text, datetime_departure_loc, place_departure(), destination(), comment()],
             dis_email_content
-        );
+        );*/
 
-       //var html = ' ' + name() + ' ' + taxi_type().text + ' ' + datetime_departure_loc + ' ' + place_departure() + ' ' + destination() + ' ' + comment();
         var send_email_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_send_email;
 
         $.ajax({
@@ -53,13 +52,12 @@ Taxi1.send_email = function(params) {
             timeout: 3000,
             jsonp: "mycallback",
             error: function(data){
-                alert('error2');
+                alert('Ошибка заказа. Проверьте включен ли интернет на смартфоне!');
             },
             success: function(data){
-                alert('Заказ успешно отправлен');
+                alert('Заказ успешно отправлен!');
             }
         })
-        //alert(html);
     }
 
     var mycallback = function(data)
@@ -92,41 +90,3 @@ Taxi1.send_email = function(params) {
         viewShown: viewShown
     };
 };
-
-function str_replace ( search, replace, subject ) {	// Replace all occurrences of the search string with the replacement string
-	//
-	// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-	// +   improved by: Gabriel Paderni
-
-	if(!(replace instanceof Array)){
-		replace=new Array(replace);
-		if(search instanceof Array){//If search	is an array and replace	is a string, then this replacement string is used for every value of search
-			while(search.length>replace.length){
-				replace[replace.length]=replace[0];
-			}
-		}
-	}
-
-	if(!(search instanceof Array))search=new Array(search);
-	while(search.length>replace.length){//If replace	has fewer values than search , then an empty string is used for the rest of replacement values
-		replace[replace.length]='';
-	}
-
-	if(subject instanceof Array){//If subject is an array, then the search and replace is performed with every entry of subject , and the return value is an array as well.
-		for(k in subject){
-			subject[k]=str_replace(search,replace,subject[k]);
-		}
-		return subject;
-	}
-
-	for(var k=0; k<search.length; k++){
-		var i = subject.indexOf(search[k]);
-		while(i>-1){
-			subject = subject.replace(search[k], replace[k]);
-			i = subject.indexOf(search[k],i);
-		}
-	}
-
-	return subject;
-
-}

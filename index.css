@@ -23,12 +23,22 @@ body
     margin-bottom: 40px;
 }
 
-#viewport .main-buttons .dx-button,
-#viewport .dx-button
+#viewport .dx-button,
 {
     width: 80%;
     margin-bottom: 40px;
-    padding: 10px;
+    padding: 30px 10px;
+}
+
+#viewport .dx-button .dx-button-content{
+    padding: 30px 10px;
+}
+#viewport .dx-button-back .dx-button-content{
+    padding: 0px;
+}
+
+#viewport .dx-button-text{
+    font-size: 21px;
 }
 
 #viewport .main-content .dx-button
@@ -38,11 +48,21 @@ body
     padding: 5px;
 }
 
+#viewport .dx-button .dx-button-content{
+    padding: 10px 5px;
+}
+
 #viewport .main-content {
-    position: absolute;
-    width: 100%;
+    position: relative;
+    width: auto;
     bottom: 0;
     height: auto;
+    /*margin-left: 10px;*/
+    text-align: center;
+    display: inline-block;
+}
+
+#viewport .send_email .dx-scrollview-content{
     text-align: center;
 }
 
@@ -54,11 +74,11 @@ body
     top: 20px;
 }
 
-#viewport.dx-theme-ios.dx-version-major-6 .main-content {
+#viewport.dx-theme-ios .main-content {
     top: 18px;
 }
 
-#viewport.dx-theme-ios.dx-version-major-7 .main-content {
+#viewport.dx-theme-ios.dx-device-ios-7 .main-content {
     top: 16px;
 }
 
@@ -102,7 +122,7 @@ body
 
 .dx-viewport.dx-theme-ios-typography .dx-fieldset
 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 10px;
 }
 
@@ -128,4 +148,19 @@ body
 
 .button-wrap .dx-button{
     margin: 20px;
+    width: 85%;
+}
+
+.home_unactive_head{
+    font-size: 16px;
+    text-align: justify;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.footer{
+    background: grey;
+    margin: 10px -15px 0px;
+    padding: 10px;
+    color: #fff;
 }
