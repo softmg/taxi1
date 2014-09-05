@@ -6,6 +6,8 @@ $(function() {
 
     document.addEventListener("deviceready", function() {
         navigator.splashscreen.hide();
+        alert(device.platform);
+        alert(pushNotification);
         if (device.platform == 'android' || device.platform == 'Android') {
             /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
                                             function(status) {
@@ -21,6 +23,7 @@ $(function() {
             pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
                                             function(status) {
                                                 var pushToken = status;
+                                                alert(status);
                                                 showStatusMsg('push token: ' + JSON.stringify(pushToken));
                                             },
                                             function(status) {
