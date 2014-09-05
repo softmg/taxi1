@@ -58,8 +58,8 @@
       <file leaf-file-name="send_email.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/send_email.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27227724" vertical-offset="300" max-vertical-offset="1560">
-              <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.37128714" vertical-offset="300" max-vertical-offset="1575">
+              <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -924,8 +924,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/send_email.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27227724" vertical-offset="300" max-vertical-offset="1560">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.37128714" vertical-offset="300" max-vertical-offset="1575">
+          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
           <folding />
         </state>
       </provider>
