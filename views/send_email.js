@@ -39,7 +39,8 @@ Taxi1.send_email = function(params) {
             function () {alert('Error getting pattern\n');},
             {formatLength:'short', selector:'date and time'}
           );
-        alert(datetime_departure_loc + ' ' + datetime_departure_loc2); return false;
+
+        //alert(datetime_departure_loc + ' ' + datetime_departure_loc2); return false;
 
         /*var html = str_replace(
             ['%name%', '%taxi_type%', '%datetime_departure%', '%place_departure%', '%destination%', '%comment%'],
