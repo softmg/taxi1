@@ -29,7 +29,11 @@ Taxi1.send_email = function(params) {
 
         var datetime_departure_loc = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm' );
 
-        alert(datetime_departure() + ' ' + datetime_departure_loc); return false;
+        var date_dep_y = Globalize.format( datetime_departure(), 'yyyy-MM-ddTH:mm');
+
+        var date_dep = new Date(date_dep_y);
+        var date_dep_gmt =  new Date(date_dep.valueOf() + date_dep.getTimezoneOffset() * 60000);
+        alert(date_dep.getUTCHours() + ' ' + date_dep_gmt.getUTCHours()); return false;
 
         /*var html = str_replace(
             ['%name%', '%taxi_type%', '%datetime_departure%', '%place_departure%', '%destination%', '%comment%'],
