@@ -92,7 +92,7 @@ function registerPush()
 
 
     } else {
-        pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "ru.softmg.taxi1", pw_appid : "E18AE-FAACA" },
+        pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
                                         function(status) {
                                             var pushToken = status;
                                             showStatusMsg('push token: ' + JSON.stringify(pushToken));
