@@ -6,8 +6,28 @@ $(function() {
 
     document.addEventListener("deviceready", function() {
         navigator.splashscreen.hide();
-        registerPush();
-        //initData();
+        if (device.platform == 'android' || device.platform == 'Android') {
+            /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
+                                            function(status) {
+                                                var pushToken = status;
+                                                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                            },
+                                            function(status) {
+                                                showStatusMsg(JSON.stringify(['failed to register', status]));
+                                            });*/
+
+
+        } else {
+            pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
+                                            function(status) {
+                                                var pushToken = status;
+                                                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                            },
+                                            function(status) {
+                                                showStatusMsg(JSON.stringify(['failed to register', status]));
+                                            });
+
+        }
     });
 
     document.addEventListener('push-notification', function(event) {
@@ -76,32 +96,6 @@ function _initData(callback_error)
             Taxi1.app.navigate();
         }
     })
-}
-
-function registerPush()
-{
-    if (device.platform == 'android' || device.platform == 'Android') {
-        /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
-                                        function(status) {
-                                            var pushToken = status;
-                                            showStatusMsg('push token: ' + JSON.stringify(pushToken));
-                                        },
-                                        function(status) {
-                                            showStatusMsg(JSON.stringify(['failed to register', status]));
-                                        });*/
-
-
-    } else {
-        pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
-                                        function(status) {
-                                            var pushToken = status;
-                                            showStatusMsg('push token: ' + JSON.stringify(pushToken));
-                                        },
-                                        function(status) {
-                                            showStatusMsg(JSON.stringify(['failed to register', status]));
-                                        });
-
-    }
 }
 
 /*function str_replace ( search, replace, subject ) {	// Replace all occurrences of the search string with the replacement string
