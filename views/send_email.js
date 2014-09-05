@@ -36,9 +36,9 @@ Taxi1.send_email = function(params) {
         var datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         deviceInfo.get(function(result) {
-                console.log("result = " + result);
+                alert("result = " + result);
             }, function() {
-                console.log("error");
+                alert("error");
             });
         alert(datetime_departure_loc + ' ' + datetime_departure_loc2); return false;
 
