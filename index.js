@@ -25,9 +25,17 @@ $(function() {
                                                 var pushToken = status;
                                                 alert(status);
                                                 showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                                _initData(function(){
+                                                        Taxi1.app.router.register(":view", { view: "home_unactive" });
+                                                        Taxi1.app.navigate();
+                                                    });
                                             },
                                             function(status) {
                                                 showStatusMsg(JSON.stringify(['failed to register', status]));
+                                                _initData(function(){
+                                                        Taxi1.app.router.register(":view", { view: "home_unactive" });
+                                                        Taxi1.app.navigate();
+                                                    });
                                             });
 
         }
@@ -52,10 +60,10 @@ $(function() {
 });
 
 $(document).ready(function(){
-    _initData(function(){
+    /*_initData(function(){
         Taxi1.app.router.register(":view", { view: "home_unactive" });
         Taxi1.app.navigate();
-    });
+    });*/
 });
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
