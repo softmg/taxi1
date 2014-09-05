@@ -5,9 +5,11 @@
 
             <!--<div class="phone-value" data-bind="text: dis_phone"></div>-->
 
-            <a data-bind="attr:{href: phone}">
-              <div data-bind="dxButton: { text: '@call' }"></div>
-            </a>
+            <div class="button-wrap">
+              <a class="tel_call" data-bind="attr:{href: phone}">
+                <div data-bind="dxButton: { text: '@call' }"></div>
+              </a>
+            </div>
 
             <div class="dx-fieldset">
                 <div class="dx-field">

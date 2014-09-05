@@ -23,34 +23,52 @@ body
     margin-bottom: 40px;
 }
 
-#viewport .dx-button,
+
+/*buttons*/
+/*#viewport .dx-button,
 {
     width: 80%;
     margin-bottom: 40px;
     padding: 30px 10px;
+}*/
+
+#viewport .button-wrap .dx-button{
+    margin: 20px;
+    width: 85%;
 }
 
-#viewport .dx-button .dx-button-content{
+#viewport .button-wrap a .dx-button{
+    margin: 0px;
+    width: auto;
+}
+
+#viewport .button-wrap .dx-button .dx-button-content{
     padding: 30px 10px;
 }
-#viewport .dx-button-back .dx-button-content{
-    padding: 0px;
-}
 
-#viewport .dx-button-text{
+#viewport .button-wrap .dx-button-text{
     font-size: 21px;
 }
 
-#viewport .main-content .dx-button
+#viewport .main-content .button-wrap .dx-button
 {
     margin-bottom: 15px;
     margin-top: 10px;
     padding: 5px;
 }
 
-#viewport .dx-button .dx-button-content{
+#viewport .main-content .button-wrap .dx-button .dx-button-content{
     padding: 10px 5px;
 }
+
+#viewport .dx-button-back .dx-button-content{
+    padding: 2px;
+}
+
+#viewport .dx-button-back .dx-button-text{
+    font-size: 9pt;
+}
+/*end buttons*/
 
 #viewport .main-content {
     position: relative;
@@ -146,11 +164,6 @@ body
     margin-right: 0px;
 }
 
-.button-wrap .dx-button{
-    margin: 20px;
-    width: 85%;
-}
-
 .home_unactive_head{
     font-size: 16px;
     text-align: justify;
@@ -163,4 +176,15 @@ body
     margin: 10px -15px 0px;
     padding: 10px;
     color: #fff;
+}
+
+
+.dx-theme-ios7 .dx-scrollable-native .dx-scrollable-content{
+    min-height: 100%;
+}
+.dx-theme-ios7 .dx-scrollable-content{
+    margin-right: 12px;
+}
+.dx-theme-android .dx-scrollview-content{
+    padding-bottom: 20px;
 }

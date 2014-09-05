@@ -32,6 +32,7 @@
 
 /* ios */
 .dx-theme-ios .simple-layout .layout-header,
+.dx-theme-ios7 .simple-layout .layout-header,
 .dx-theme-ios.dx-version-major-5 .simple-layout .layout-header,
 .dx-theme-ios.dx-version-major-6 .simple-layout .layout-header {
     top: 0;
@@ -39,6 +40,7 @@
 }
 
 .dx-theme-ios .simple-layout .layout-content,
+.dx-theme-ios7 .simple-layout .layout-content,
 .dx-theme-ios.dx-version-major-5 .simple-layout .layout-content,
 .dx-theme-ios.dx-version-major-6 .simple-layout .layout-content {
     top: 44px;
@@ -57,6 +59,7 @@
 }*/
 
 .dx-theme-ios .simple-layout .view-toolbar-bottom.dx-toolbar,
+.dx-theme-ios7 .simple-layout .view-toolbar-bottom.dx-toolbar,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-toolbar-bottom.dx-toolbar,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-toolbar-bottom.dx-toolbar {
     background: transparent;
@@ -65,24 +68,28 @@
 }
  
 .dx-theme-ios.simple-layout .view-footer,
+.dx-theme-ios7.simple-layout .view-footer,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer {
     position: static;
 }
 
 .dx-theme-ios .simple-layout .view-footer .dx-toolbar,
+.dx-theme-ios7 .simple-layout .view-footer .dx-toolbar,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-toolbar,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-toolbar {
     height: 57px;
 }
 
 .dx-theme-ios .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center,
+.dx-theme-ios7 .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center {
     width: 100%;
 }
 
 .dx-theme-ios .simple-layout .view-footer .dx-button,
+.dx-theme-ios7 .simple-layout .view-footer .dx-button,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-button,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-button {
     width: 97%;
@@ -91,6 +98,7 @@
 }
 
 .dx-theme-ios .simple-layout .view-footer .dx-button .dx-button-content,
+.dx-theme-ios7 .simple-layout .view-footer .dx-button .dx-button-content,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-button .dx-button-content,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-button .dx-button-content {
     height: 44px;
@@ -100,6 +108,7 @@
 }
 
 .dx-theme-ios .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text,
+.dx-theme-ios7 .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text,
 .dx-theme-ios.dx-version-major-5 .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text,
 .dx-theme-ios.dx-version-major-6 .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text {
     font-size: 20px;
@@ -108,52 +117,52 @@
 
 /* ios7 */
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .layout-header {
+.dx-theme-ios7.simple-layout .layout-header {
     top: 0;
     height: 44px;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .layout-content {
+.dx-theme-ios7.simple-layout .layout-content {
     top: 45px;
     bottom: 0;
     background-color: #EFEFF4;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .view-footer {
+.dx-theme-ios7.simple-layout .view-footer {
     position: static;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .view-toolbar-bottom.dx-toolbar {
+.dx-theme-ios7.simple-layout .view-toolbar-bottom.dx-toolbar {
     background: transparent;
     border: none;
     margin-bottom: 10px;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center {
+.dx-theme-ios7.simple-layout .view-toolbar-bottom.dx-toolbar .dx-toolbar-center {
     width: 100%;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .view-footer .dx-toolbar {
+.dx-theme-ios7.simple-layout .view-footer .dx-toolbar {
     height: 57px;
 }
 
-.dx-theme-ios.dx-version-major-7 .slideout-layout .view-footer .dx-toolbar-center {
+.dx-theme-ios7.slideout-layout .view-footer .dx-toolbar-center {
     width: 100%;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .view-footer .dx-button {
+.dx-theme-ios7.simple-layout .view-footer .dx-button {
     width: 97%;
     overflow: visible;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .view-footer .dx-button .dx-button-content {
+.dx-theme-ios7.simple-layout .view-footer .dx-button .dx-button-content {
     height: 44px;
     border-radius: 6px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.dx-theme-ios.dx-version-major-7 .simple-layout .view-footer .dx-button .dx-button-content .dx-button-text {
+.dx-theme-ios7.simple-layout .view-footer .dx-button .dx-button-content .dx-button-text {
     font-size: 20px;
     line-height: 38px;
 }
