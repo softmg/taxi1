@@ -6,8 +6,21 @@ $(function() {
 
     document.addEventListener("deviceready", function() {
         navigator.splashscreen.hide();
+        registerPush();
         //initData();
     });
+
+    document.addEventListener('push-notification', function(event) {
+            var notification = event.notification;
+            pushNotification.setApplicationIconBadgeNumber(0);
+            var title = notification.title;
+            var userData = notification.userdata;
+            navigator.notification.alert(notification.aps.alert);
+
+            if(typeof(userData) != "undefined") {
+                showStatusMsg('user data: ' + JSON.stringify(userData));
+            }
+        });
 
     Taxi1.app = new DevExpress.framework.html.HtmlApplication({
         namespace: Taxi1,
@@ -63,6 +76,32 @@ function _initData(callback_error)
             Taxi1.app.navigate();
         }
     })
+}
+
+function registerPush()
+{
+    if (device.platform == 'android' || device.platform == 'Android') {
+        /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
+                                        function(status) {
+                                            var pushToken = status;
+                                            showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                        },
+                                        function(status) {
+                                            showStatusMsg(JSON.stringify(['failed to register', status]));
+                                        });*/
+
+
+    } else {
+        pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "ru.softmg.taxi1", pw_appid : "E18AE-FAACA" },
+                                        function(status) {
+                                            var pushToken = status;
+                                            showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                        },
+                                        function(status) {
+                                            showStatusMsg(JSON.stringify(['failed to register', status]));
+                                        });
+
+    }
 }
 
 /*function str_replace ( search, replace, subject ) {	// Replace all occurrences of the search string with the replacement string

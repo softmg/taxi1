@@ -40,7 +40,6 @@ Taxi1.send_email = function(params) {
             {formatLength:'short', selector:'date and time'}
           );*/
 
-        alert(datetime_departure() + ' ' +  datetime_departure_loc + ' ' + datetime_departure_loc2); return false;
 
         /*var html = str_replace(
             ['%name%', '%taxi_type%', '%datetime_departure%', '%place_departure%', '%destination%', '%comment%'],
@@ -55,7 +54,7 @@ Taxi1.send_email = function(params) {
             data:{
                 name: name(),
                 taxi_type: taxi_type().text,
-                datetime_departure: datetime_departure_loc,
+                datetime_departure: datetime_departure_loc2,
                 place_departure: place_departure(),
                 destination: destination(),
                 comment: comment(),
