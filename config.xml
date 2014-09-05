@@ -7,6 +7,7 @@
     version="0.0.1">
 
     <access origin="*"/>
+    <plugin name="Globalization" value="org.apache.cordova.Globalization" />
 
     <name>Taxi1</name>
 
