@@ -34,7 +34,9 @@ Taxi1.send_email = function(params) {
         var date_dep = new Date(date_dep_y);
         //var date_dep_gmt =  new Date(date_dep.valueOf() - date_dep.getTimezoneOffset() * 60000);
         var datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
+        alert(cordova);
         var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+        alert(deviceInfo);
         deviceInfo.get(function(result) {
                 alert("result = " + result);
             }, function() {
