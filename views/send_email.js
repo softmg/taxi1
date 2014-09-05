@@ -29,6 +29,8 @@ Taxi1.send_email = function(params) {
 
         var datetime_departure_loc = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm' );
 
+        alert(datetime_departure() + ' ' + datetime_departure_loc); return false;
+
         /*var html = str_replace(
             ['%name%', '%taxi_type%', '%datetime_departure%', '%place_departure%', '%destination%', '%comment%'],
             [name(), taxi_type().text, datetime_departure_loc, place_departure(), destination(), comment()],

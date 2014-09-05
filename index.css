@@ -62,7 +62,8 @@ body
 }
 
 #viewport .dx-button-back .dx-button-content{
-    padding: 2px;
+    padding: 2px 0px;
+    margin-left: 0px;
 }
 
 #viewport .dx-button-back .dx-button-text{
