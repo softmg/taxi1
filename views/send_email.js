@@ -34,6 +34,11 @@ Taxi1.send_email = function(params) {
         var date_dep = new Date(date_dep_y);
         //var date_dep_gmt =  new Date(date_dep.valueOf() - date_dep.getTimezoneOffset() * 60000);
         var datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
+        navigator.globalization.getDatePattern(
+            function (date) {alert('utc_offset: ' + date.utc_offset + '\n');},
+            function () {alert('Error getting pattern\n');},
+            {formatLength:'short', selector:'date and time'}
+          );
         alert(datetime_departure_loc + ' ' + datetime_departure_loc2); return false;
 
         /*var html = str_replace(
