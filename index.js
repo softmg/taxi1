@@ -16,7 +16,7 @@ $(function() {
             navigator.notification.alert(notification.aps.alert);
 
             if(typeof(userData) != "undefined") {
-                showStatusMsg('user data: ' + JSON.stringify(userData));
+                alert('user data: ' + JSON.stringify(userData));
             }
         });
 
@@ -78,10 +78,10 @@ $(function() {
         /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
             function(status) {
                 var pushToken = status;
-                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                alert('push token: ' + JSON.stringify(pushToken));
             },
             function(status) {
-                showStatusMsg(JSON.stringify(['failed to register', status]));
+                alert(JSON.stringify(['failed to register', status]));
             });*/
 
 
@@ -89,15 +89,14 @@ $(function() {
             pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
             function(status) {
                 var pushToken = status;
-                alert(status);
-                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                alert('push token: ' + JSON.stringify(pushToken));
                 _initData(function(){
                         Taxi1.app.router.register(":view", { view: "home_unactive" });
                         Taxi1.app.navigate();
                     });
             },
             function(status) {
-                showStatusMsg(JSON.stringify(['failed to register', status]));
+                alert(JSON.stringify(['failed to register', status]));
                 _initData(function(){
                         Taxi1.app.router.register(":view", { view: "home_unactive" });
                         Taxi1.app.navigate();
