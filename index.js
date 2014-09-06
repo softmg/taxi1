@@ -24,7 +24,83 @@ $(function() {
     });
     function onDeviceReady() {
         navigator.splashscreen.hide();
-        alert(device.platform);
+        pushRegister();
+    }
+
+    var mycallback = function(data)
+    {
+        alert("Here: "+data.name);
+    }
+
+    function _initData(callback_error)
+    {
+        var phone_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_all;
+        $.ajax({
+            type: "get",
+            dataType: 'jsonp',
+            url: phone_url,
+            jsonp: "mycallback",
+            error: function(x,e){
+                            if(x.status==0){
+                                console.log('You are offline!!\n Please Check Your Network.');
+                            }else if(x.status==404){
+                                console.log('Requested URL not found.' + phone_url);
+                            }else if(x.status==500){
+                                console.log('Internel Server Error.');
+                            }else if(e=='parsererror'){
+                                console.log('Error.\nParsing JSON Request failed. '+x.status);
+                            }else if(e=='timeout'){
+                                console.log('Request Time out.');
+                            }else {
+                                console.log('Unknow Error.\n'+x.responseText);
+                            }
+                            if(typeof(callback_error) !== 'undefined')
+                            {
+                              callback_error();
+                            }
+                        },
+            success: function(data){
+                Taxi1.config.dis_phone  = data.phone;
+                Taxi1.config.discount   = data.discount;
+                Taxi1.app.router.register(":view", { view: "home" });
+                Taxi1.app.navigate();
+            }
+        })
+    }
+
+    function pushRegister()
+    {
+        if (device.platform == 'android' || device.platform == 'Android') {
+        /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
+            function(status) {
+                var pushToken = status;
+                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+            },
+            function(status) {
+                showStatusMsg(JSON.stringify(['failed to register', status]));
+            });*/
+
+
+        } else {
+            pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
+            function(status) {
+                var pushToken = status;
+                alert(status);
+                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                _initData(function(){
+                        Taxi1.app.router.register(":view", { view: "home_unactive" });
+                        Taxi1.app.navigate();
+                    });
+            },
+            function(status) {
+                showStatusMsg(JSON.stringify(['failed to register', status]));
+                _initData(function(){
+                        Taxi1.app.router.register(":view", { view: "home_unactive" });
+                        Taxi1.app.navigate();
+                    });
+            });
+
+        }
     }
 });
 
@@ -35,82 +111,12 @@ $(document).ready(function(){
     });*/
     /*alert(device);
     alert(device.platform);
-    alert(pushNotification);
-    if (device.platform == 'android' || device.platform == 'Android') {
-                /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
-                                                function(status) {
-                                                    var pushToken = status;
-                                                    showStatusMsg('push token: ' + JSON.stringify(pushToken));
-                                                },
-                                                function(status) {
-                                                    showStatusMsg(JSON.stringify(['failed to register', status]));
-                                                });*/
+    alert(pushNotification);*/
+    });
 
-
-            /*} else {
-                pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
-                                                function(status) {
-                                                    var pushToken = status;
-                                                    alert(status);
-                                                    showStatusMsg('push token: ' + JSON.stringify(pushToken));
-                                                    _initData(function(){
-                                                            Taxi1.app.router.register(":view", { view: "home_unactive" });
-                                                            Taxi1.app.navigate();
-                                                        });
-                                                },
-                                                function(status) {
-                                                    showStatusMsg(JSON.stringify(['failed to register', status]));
-                                                    _initData(function(){
-                                                            Taxi1.app.router.register(":view", { view: "home_unactive" });
-                                                            Taxi1.app.navigate();
-                                                        });
-                                                });
-
-            }*/
-});
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
 
-var mycallback = function(data)
-{
-    alert("Here: "+data.name);
-}
-
-function _initData(callback_error)
-{
-    var phone_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_all;
-    $.ajax({
-        type: "get",
-        dataType: 'jsonp',
-        url: phone_url,
-        jsonp: "mycallback",
-        error: function(x,e){
-                        if(x.status==0){
-                            console.log('You are offline!!\n Please Check Your Network.');
-                        }else if(x.status==404){
-                            console.log('Requested URL not found.' + phone_url);
-                        }else if(x.status==500){
-                            console.log('Internel Server Error.');
-                        }else if(e=='parsererror'){
-                            console.log('Error.\nParsing JSON Request failed. '+x.status);
-                        }else if(e=='timeout'){
-                            console.log('Request Time out.');
-                        }else {
-                            console.log('Unknow Error.\n'+x.responseText);
-                        }
-                        if(typeof(callback_error) !== 'undefined')
-                        {
-                          callback_error();
-                        }
-                    },
-        success: function(data){
-            Taxi1.config.dis_phone  = data.phone;
-            Taxi1.config.discount   = data.discount;
-            Taxi1.app.router.register(":view", { view: "home" });
-            Taxi1.app.navigate();
-        }
-    })
-}
 
 /*function str_replace ( search, replace, subject ) {	// Replace all occurrences of the search string with the replacement string
 
