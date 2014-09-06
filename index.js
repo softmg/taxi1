@@ -4,9 +4,7 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
-    document.addEventListener("deviceready", function() {
-        navigator.splashscreen.hide();
-    });
+    document.addEventListener("deviceready", onDeviceReady, false);
 
     document.addEventListener('push-notification', function(event) {
             var notification = event.notification;
@@ -24,6 +22,10 @@ $(function() {
         namespace: Taxi1,
         navigationType: Taxi1.config.navigationType
     });
+    function onDeviceReady() {
+        navigator.splashscreen.hide();
+        alert(device.platform);
+    }
 });
 
 $(document).ready(function(){
@@ -31,7 +33,40 @@ $(document).ready(function(){
         Taxi1.app.router.register(":view", { view: "home_unactive" });
         Taxi1.app.navigate();
     });*/
-    alert(device);
+    /*alert(device);
+    alert(device.platform);
+    alert(pushNotification);
+    if (device.platform == 'android' || device.platform == 'Android') {
+                /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
+                                                function(status) {
+                                                    var pushToken = status;
+                                                    showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                                },
+                                                function(status) {
+                                                    showStatusMsg(JSON.stringify(['failed to register', status]));
+                                                });*/
+
+
+            /*} else {
+                pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
+                                                function(status) {
+                                                    var pushToken = status;
+                                                    alert(status);
+                                                    showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                                    _initData(function(){
+                                                            Taxi1.app.router.register(":view", { view: "home_unactive" });
+                                                            Taxi1.app.navigate();
+                                                        });
+                                                },
+                                                function(status) {
+                                                    showStatusMsg(JSON.stringify(['failed to register', status]));
+                                                    _initData(function(){
+                                                            Taxi1.app.router.register(":view", { view: "home_unactive" });
+                                                            Taxi1.app.navigate();
+                                                        });
+                                                });
+
+            }*/
 });
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
