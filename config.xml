@@ -8,7 +8,7 @@
 
     <access origin="*"/>
     <!--<gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />-->
-    <gap:plugin name="it.adacto.cordova.device" version="0.1" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.3" />
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
 
     <name>Taxi1</name>
