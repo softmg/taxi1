@@ -1,5 +1,5 @@
 ﻿window.Taxi1 = window.Taxi1 || {};
-
+alert(window.plugins);
 $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
