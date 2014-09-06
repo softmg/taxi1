@@ -1,5 +1,5 @@
 ﻿window.Taxi1 = window.Taxi1 || {};
-alert(window.plugins);
+
 $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
@@ -72,9 +72,39 @@ $(function() {
 
     function pushRegister()
     {
-        //pushNotification = window.plugins.pushNotification;
-alert(window.plugins);
+        pushNotification = window.plugins.pushNotification;
 
+        if (device.platform == 'android' || device.platform == 'Android') {
+        /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
+            function(status) {
+                var pushToken = status;
+                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+            },
+            function(status) {
+                showStatusMsg(JSON.stringify(['failed to register', status]));
+            });*/
+
+
+        } else {
+            pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
+            function(status) {
+                var pushToken = status;
+                alert(status);
+                showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                _initData(function(){
+                        Taxi1.app.router.register(":view", { view: "home_unactive" });
+                        Taxi1.app.navigate();
+                    });
+            },
+            function(status) {
+                showStatusMsg(JSON.stringify(['failed to register', status]));
+                _initData(function(){
+                        Taxi1.app.router.register(":view", { view: "home_unactive" });
+                        Taxi1.app.navigate();
+                    });
+            });
+
+        }
     }
 });
 
