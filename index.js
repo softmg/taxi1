@@ -33,7 +33,7 @@ $(document).ready(function(){
     });*/
     alert(device);
     alert(device.platform);
-    alert(pushNotification;
+    alert(pushNotification);
     if (device.platform == 'android' || device.platform == 'Android') {
                 /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
                                                 function(status) {
