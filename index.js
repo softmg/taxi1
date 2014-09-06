@@ -31,6 +31,9 @@ $(document).ready(function(){
         Taxi1.app.router.register(":view", { view: "home_unactive" });
         Taxi1.app.navigate();
     });*/
+    alert(device);
+    alert(device.platform);
+    alert(pushNotification;
     if (device.platform == 'android' || device.platform == 'Android') {
                 /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
                                                 function(status) {
