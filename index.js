@@ -72,9 +72,9 @@ $(function() {
 
     function pushRegister()
     {
-        pushNotification = window.plugins.pushNotification;
-alert(pushNotification);
-       
+        //pushNotification = window.plugins.pushNotification;
+alert(window.plugins);
+
     }
 });
 
