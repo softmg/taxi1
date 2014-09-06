@@ -6,39 +6,6 @@ $(function() {
 
     document.addEventListener("deviceready", function() {
         navigator.splashscreen.hide();
-        alert(device.platform);
-        alert(pushNotification);
-        if (device.platform == 'android' || device.platform == 'Android') {
-            /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
-                                            function(status) {
-                                                var pushToken = status;
-                                                showStatusMsg('push token: ' + JSON.stringify(pushToken));
-                                            },
-                                            function(status) {
-                                                showStatusMsg(JSON.stringify(['failed to register', status]));
-                                            });*/
-
-
-        } else {
-            pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
-                                            function(status) {
-                                                var pushToken = status;
-                                                alert(status);
-                                                showStatusMsg('push token: ' + JSON.stringify(pushToken));
-                                                _initData(function(){
-                                                        Taxi1.app.router.register(":view", { view: "home_unactive" });
-                                                        Taxi1.app.navigate();
-                                                    });
-                                            },
-                                            function(status) {
-                                                showStatusMsg(JSON.stringify(['failed to register', status]));
-                                                _initData(function(){
-                                                        Taxi1.app.router.register(":view", { view: "home_unactive" });
-                                                        Taxi1.app.navigate();
-                                                    });
-                                            });
-
-        }
     });
 
     document.addEventListener('push-notification', function(event) {
@@ -64,6 +31,37 @@ $(document).ready(function(){
         Taxi1.app.router.register(":view", { view: "home_unactive" });
         Taxi1.app.navigate();
     });*/
+    if (device.platform == 'android' || device.platform == 'Android') {
+                /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
+                                                function(status) {
+                                                    var pushToken = status;
+                                                    showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                                },
+                                                function(status) {
+                                                    showStatusMsg(JSON.stringify(['failed to register', status]));
+                                                });*/
+
+
+            } else {
+                pushNotification.registerDevice({ alert:true, badge:true, sound:true,  appname: "Taxi1", pw_appid : "E18AE-FAACA" },
+                                                function(status) {
+                                                    var pushToken = status;
+                                                    alert(status);
+                                                    showStatusMsg('push token: ' + JSON.stringify(pushToken));
+                                                    _initData(function(){
+                                                            Taxi1.app.router.register(":view", { view: "home_unactive" });
+                                                            Taxi1.app.navigate();
+                                                        });
+                                                },
+                                                function(status) {
+                                                    showStatusMsg(JSON.stringify(['failed to register', status]));
+                                                    _initData(function(){
+                                                            Taxi1.app.router.register(":view", { view: "home_unactive" });
+                                                            Taxi1.app.navigate();
+                                                        });
+                                                });
+
+            }
 });
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
