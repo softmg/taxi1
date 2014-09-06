@@ -9,7 +9,7 @@
     <access origin="*"/>
     <!--<gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />-->
     <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
-    <gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.2" />
+    <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
 
     <name>Taxi1</name>
