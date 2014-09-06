@@ -4,6 +4,8 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
+    var pushNotification;
+
     document.addEventListener("deviceready", onDeviceReady, false);
 
     document.addEventListener('push-notification', function(event) {
@@ -24,16 +26,6 @@ $(function() {
     });
     function onDeviceReady() {
         navigator.splashscreen.hide();
-        function onConfirm(buttonIndex) {
-            alert('You selected button ' + buttonIndex);
-        }
-
-        navigator.notification.confirm(
-            'You are the winner!', // message
-             onConfirm,            // callback to invoke with index of button pressed
-            'Game Over',           // title
-            ['Restart','Exit']     // buttonLabels
-        );
         pushRegister();
     }
 
@@ -80,6 +72,8 @@ $(function() {
 
     function pushRegister()
     {
+        pushNotification = window.plugins.pushNotification;
+
         if (device.platform == 'android' || device.platform == 'Android') {
         /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
             function(status) {
