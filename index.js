@@ -26,7 +26,8 @@ $(function() {
     });
     function onDeviceReady() {
         navigator.splashscreen.hide();
-        pushRegister();
+        alert(111);
+        //pushRegister();
     }
 
     var mycallback = function(data)

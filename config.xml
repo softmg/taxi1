@@ -75,5 +75,5 @@
     <gap:splash src="Resources/PackageIcons.iOS.Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />-->
 
     <access origin="*"/>
-    
+
 </widget>
