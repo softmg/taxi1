@@ -23,7 +23,7 @@ $(function() {
         navigationType: Taxi1.config.navigationType
     });
     function onDeviceReady() {
-        //navigator.splashscreen.hide();
+        navigator.splashscreen.hide();
         alert(device.platform);
     }
 });
