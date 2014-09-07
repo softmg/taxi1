@@ -22,7 +22,7 @@
     pushNotification.onDeviceReady();
 
     //register for pushes.
-    pushNotification.registerDevice({ projectid: "quick-heaven-696", appid : "E18AE-FAACA" },
+    pushNotification.registerDevice({ projectid: "1033840522179", appid : "E18AE-FAACA" },
         function(token)
         {
             alert(token);
