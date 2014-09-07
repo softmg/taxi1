@@ -13,13 +13,14 @@ $(function() {
             name: "MyLocalData",
             key: "config"
         });
+        store.load().done(function(result) {
+            store_data = result;
+        });
+
         console.warn('end init local store');
 
         return {'config':false, 'push':true};
-    }/*
-    store.load().done(function(result) {
-        store_data = result;
-    });*/
+    }
 
     function initPushwoosh() {
         console.warn('start init pushwoosh');
@@ -94,7 +95,12 @@ $(function() {
                             }
                         },
             success: function(data){
-                /*store.insert({
+                store.insert({
+                    id: 0,
+                    name: "date_config",
+                    value: new Date().valueOf()
+                });
+                store.insert({
                     id: 1,
                     name: "dis_phone",
                     value: data.phone
@@ -103,7 +109,7 @@ $(function() {
                     id: 2,
                     name: "discount",
                     value: data.discount
-                });*/
+                });
                 Taxi1.config.dis_phone  = data.phone;
                 Taxi1.config.discount   = data.discount;
                 Taxi1.app.router.register(":view", { view: "home" });
