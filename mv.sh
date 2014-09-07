@@ -1,1 +1,1 @@
-mv ~/Загрузки/Taxi1.ipa /var/www/phonegap/lib/iphone4/var/mobile/Downloads/
+sudo mv ~/Загрузки/Taxi1.ipa /var/www/phonegap/lib/iphone/var/mobile/Downloads/Taxi1.ipa
