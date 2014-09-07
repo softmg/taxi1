@@ -4,21 +4,20 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
-    var pushNotification;
+
+    function initPushwoosh() {
+        var pushNotification = window.plugins.pushNotification;
+        if(device.platform == 'android' || device.platform == 'Android')
+        {
+            registerPushwooshAndroid();
+        }
+        else
+        {
+            registerPushwooshIOS();
+        }
+    }
 
     document.addEventListener("deviceready", onDeviceReady, false);
-
-    document.addEventListener('push-notification', function(event) {
-            var notification = event.notification;
-            pushNotification.setApplicationIconBadgeNumber(0);
-            var title = notification.title;
-            var userData = notification.userdata;
-            navigator.notification.alert(notification.aps.alert);
-
-            if(typeof(userData) != "undefined") {
-                alert('user data: ' + JSON.stringify(userData));
-            }
-        });
 
     Taxi1.app = new DevExpress.framework.html.HtmlApplication({
         namespace: Taxi1,
@@ -26,7 +25,11 @@ $(function() {
     });
     function onDeviceReady() {
         navigator.splashscreen.hide();
-        pushRegister();
+        _initData(function(){
+            Taxi1.app.router.register(":view", { view: "home_unactive" });
+            Taxi1.app.navigate();
+        });
+        initPushwoosh();
     }
 
     var mycallback = function(data)
@@ -70,19 +73,19 @@ $(function() {
         })
     }
 
-    function pushRegister()
+    /*function pushRegister()
     {
         pushNotification = window.plugins.pushNotification;
 
         if (device.platform == 'android' || device.platform == 'Android') {
-        /*pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
+        pushNotification.registerDevice({ alert:true, badge:true, sound:true,  projectid: "...your GCM project number...", appid : "CDAPP-00000" },
             function(status) {
                 var pushToken = status;
                 alert('push token: ' + JSON.stringify(pushToken));
             },
             function(status) {
                 alert(JSON.stringify(['failed to register', status]));
-            });*/
+            });
 
 
         } else {
@@ -90,32 +93,14 @@ $(function() {
             function(status) {
                 var pushToken = status;
                 alert('push token: ' + JSON.stringify(pushToken));
-                _initData(function(){
-                        Taxi1.app.router.register(":view", { view: "home_unactive" });
-                        Taxi1.app.navigate();
-                    });
             },
             function(status) {
                 alert(JSON.stringify(['failed to register', status]));
-                _initData(function(){
-                        Taxi1.app.router.register(":view", { view: "home_unactive" });
-                        Taxi1.app.navigate();
-                    });
             });
 
         }
-    }
+    }*/
 });
-
-$(document).ready(function(){
-    /*_initData(function(){
-        Taxi1.app.router.register(":view", { view: "home_unactive" });
-        Taxi1.app.navigate();
-    });*/
-    /*alert(device);
-    alert(device.platform);
-    alert(pushNotification);*/
-    });
 
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
