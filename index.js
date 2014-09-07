@@ -6,12 +6,17 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
+    function initLocalStore()
+    {
+        console.warn('start init local store');
+        var store = new DevExpress.data.LocalStore({
+            name: "MyLocalData",
+            key: "config"
+        });
+        console.warn('end init local store');
 
-
-    var store = new DevExpress.data.LocalStore({
-        name: "MyLocalData",
-        key: "config"
-    });/*
+        return ['config':false, 'push':true];
+    }/*
     store.load().done(function(result) {
         store_data = result;
     });*/
@@ -36,11 +41,20 @@ $(function() {
     });
     function onDeviceReady() {
         navigator.splashscreen.hide();
-        _initData(function(){
-            Taxi1.app.router.register(":view", { view: "home_unactive" });
-            Taxi1.app.navigate();
-        });
-        initPushwoosh();
+
+        var data_init = initLocalStore();
+
+        if(!data_init['config'])
+        {
+            _initData(function(){
+                Taxi1.app.router.register(":view", { view: "home_unactive" });
+                Taxi1.app.navigate();
+            });
+        }
+        if(!data_init['push'])
+        {
+            initPushwoosh();
+        }
     }
 
     var mycallback = function(data)
