@@ -29,7 +29,7 @@ $(function() {
             Taxi1.app.router.register(":view", { view: "home_unactive" });
             Taxi1.app.navigate();
         });
-        initPushwoosh();
+        //initPushwoosh();
     }
 
     var mycallback = function(data)
