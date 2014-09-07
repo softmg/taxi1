@@ -8,10 +8,10 @@ $(function() {
 
 
 
-    /*var store = new DevExpress.data.LocalStore({
+    var store = new DevExpress.data.LocalStore({
         name: "MyLocalData",
         key: "config"
-    });
+    });/*
     store.load().done(function(result) {
         store_data = result;
     });*/
