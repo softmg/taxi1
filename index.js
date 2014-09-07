@@ -22,6 +22,7 @@ $(function() {
     });*/
 
     function initPushwoosh() {
+        console.warn('start init pushwoosh');
         var pushNotification = window.plugins.pushNotification;
         if(device.platform == 'android' || device.platform == 'Android')
         {
@@ -31,6 +32,7 @@ $(function() {
         {
             registerPushwooshIOS();
         }
+        console.warn('end init pushwoosh');
     }
 
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -46,7 +48,9 @@ $(function() {
 
         if(!data_init['config'])
         {
+            console.warn('start init config');
             _initData(function(){
+                console.warn('end init config');
                 Taxi1.app.router.register(":view", { view: "home_unactive" });
                 Taxi1.app.navigate();
             });
