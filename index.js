@@ -4,6 +4,15 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
+    var store_data;
+
+    var store = new DevExpress.data.LocalStore({
+        name: "MyLocalData",
+        key: "config"
+    });
+    store.load().done(function(result) {
+        store_data = result;
+    });
 
     function initPushwoosh() {
         var pushNotification = window.plugins.pushNotification;
@@ -65,6 +74,16 @@ $(function() {
                             }
                         },
             success: function(data){
+                store.insert({
+                    id: 1,
+                    name: "dis_phone",
+                    value: data.phone
+                });
+                store.insert({
+                    id: 2,
+                    name: "discount",
+                    value: data.discount
+                });
                 Taxi1.config.dis_phone  = data.phone;
                 Taxi1.config.discount   = data.discount;
                 Taxi1.app.router.register(":view", { view: "home" });

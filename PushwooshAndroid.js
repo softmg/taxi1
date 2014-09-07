@@ -25,7 +25,7 @@
     pushNotification.registerDevice({ projectid: "1033840522179", appid : "E18AE-FAACA" },
         function(token)
         {
-            alert(token);
+            //alert(token);
             //callback when pushwoosh is ready
             onPushwooshAndroidInitialized(token);
         },
