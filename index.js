@@ -76,17 +76,17 @@ $(function() {
             jsonp: "mycallback",
             error: function(x,e){
                             if(x.status==0){
-                                console.log('You are offline!!\n Please Check Your Network.');
+                                console.warn('You are offline!!\n Please Check Your Network.');
                             }else if(x.status==404){
-                                console.log('Requested URL not found.' + phone_url);
+                                console.warn('Requested URL not found.' + phone_url);
                             }else if(x.status==500){
-                                console.log('Internel Server Error.');
+                                console.warn('Internel Server Error.');
                             }else if(e=='parsererror'){
-                                console.log('Error.\nParsing JSON Request failed. '+x.status);
+                                console.warn('Error.\nParsing JSON Request failed. '+x.status);
                             }else if(e=='timeout'){
-                                console.log('Request Time out.');
+                                console.warn('Request Time out.');
                             }else {
-                                console.log('Unknow Error.\n'+x.responseText);
+                                console.warn('Unknow Error.\n'+x.responseText);
                             }
                             if(typeof(callback_error) !== 'undefined')
                             {
