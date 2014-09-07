@@ -15,7 +15,7 @@ $(function() {
         });
         console.warn('end init local store');
 
-        return ['config':false, 'push':true];
+        return {'config':false, 'push':true};
     }/*
     store.load().done(function(result) {
         store_data = result;
