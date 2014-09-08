@@ -9,13 +9,13 @@ $(function() {
     function initLocalStore()
     {
         console.warn('start init local store');
-        /*var store = new DevExpress.data.LocalStore({
+        var store = new DevExpress.data.LocalStore({
             name: "MyLocalData",
             key: "config"
         });
         store.load().done(function(result) {
             store_data = result;
-        });*/
+        });
 
         console.warn('end init local store');
 
@@ -43,7 +43,7 @@ $(function() {
         navigationType: Taxi1.config.navigationType
     });
     function onDeviceReady() {
-        navigator.splashscreen.hide();
+        /*navigator.splashscreen.hide();
 
         var data_init = initLocalStore();
 
@@ -59,7 +59,7 @@ $(function() {
         if(!data_init['push'])
         {
             initPushwoosh();
-        }
+        }*/
     }
 
     var mycallback = function(data)
