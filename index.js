@@ -73,7 +73,7 @@ var store_data;
         //}
         //if(!data_init['push'])
         //{
-            initPushwoosh();
+            //initPushwoosh();
         //}
     }
 
@@ -112,6 +112,7 @@ var store_data;
                             }
                         },
             success: function(data){
+                console.warn('config success!');
                 /*store.insert({
                     id: 0,
                     name: "date_config",
