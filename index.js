@@ -2,7 +2,7 @@
 
 var store_data;
 
-$(function() {
+//$(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
@@ -43,23 +43,23 @@ $(function() {
         navigationType: Taxi1.config.navigationType
     });
     function onDeviceReady() {
-        /*navigator.splashscreen.hide();
+        navigator.splashscreen.hide();
 
-        var data_init = initLocalStore();
+        //var data_init = initLocalStore();
 
-        if(!data_init['config'])
-        {
+        //if(!data_init['config'])
+        //{
             console.warn('start init config');
             _initData(function(){
                 console.warn('end init config');
                 Taxi1.app.router.register(":view", { view: "home_unactive" });
                 Taxi1.app.navigate();
             });
-        }
-        if(!data_init['push'])
-        {
+        //}
+        //if(!data_init['push'])
+        //{
             initPushwoosh();
-        }*/
+        //}
     }
 
     var mycallback = function(data)
@@ -95,7 +95,7 @@ $(function() {
                             }
                         },
             success: function(data){
-                store.insert({
+                /*store.insert({
                     id: 0,
                     name: "date_config",
                     value: new Date().valueOf()
@@ -109,7 +109,7 @@ $(function() {
                     id: 2,
                     name: "discount",
                     value: data.discount
-                });
+                });*/
                 Taxi1.config.dis_phone  = data.phone;
                 Taxi1.config.discount   = data.discount;
                 Taxi1.app.router.register(":view", { view: "home" });
@@ -145,7 +145,7 @@ $(function() {
 
         }
     }*/
-});
+//});
 
 
 Globalize.culture(navigator.language || navigator.browserLanguage);
