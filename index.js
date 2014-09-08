@@ -8,7 +8,7 @@ window.onerror = function(msg, url, line, col, error) {
 
    // You can view the information in an alert to see things working like this:
    console.warn("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
-   
+
    var suppressErrorAlert = true;
    // If you return true, then error alerts (like in older versions of
    // Internet Explorer) will be suppressed.
@@ -85,6 +85,7 @@ var store_data;
     function _initData(callback_error)
     {
         var phone_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_all;
+        console.warn('url config: ' + phone_url);
         $.ajax({
             type: "get",
             dataType: 'jsonp',
