@@ -90,6 +90,7 @@ var store_data;
             type: "get",
             dataType: 'jsonp',
             url: phone_url,
+            timeout: 3000,
             jsonp: "mycallback",
             error: function(x,e){
                             if(x.status==0){
