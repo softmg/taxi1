@@ -15,20 +15,23 @@ window.onerror = function(msg, url, line, col, error) {
    return suppressErrorAlert;
 };
 
+var store;
 var store_data;
 
-//$(function() {
+$(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
     function initLocalStore()
     {
         console.warn('start init local store');
-        var store = new DevExpress.data.LocalStore({
+
+        store = new DevExpress.data.LocalStore({
             name: "MyLocalData",
-            key: "config"
+            key: "name"
         });
-        store.load().done(function(result) {
+
+        store.byKey('date_config').done(function(dataItem) {
             store_data = result;
         });
 
@@ -53,14 +56,18 @@ var store_data;
 
     document.addEventListener("deviceready", onDeviceReady, false);
 
+    $(document).ready(function(){
+        onDeviceReady();
+    });
+
     Taxi1.app = new DevExpress.framework.html.HtmlApplication({
         namespace: Taxi1,
         navigationType: Taxi1.config.navigationType
     });
     function onDeviceReady() {
-        navigator.splashscreen.hide();
+        //navigator.splashscreen.hide();
 
-        //var data_init = initLocalStore();
+        var data_init = initLocalStore();
 
         //if(!data_init['config'])
         //{
@@ -113,21 +120,18 @@ var store_data;
                         },
             success: function(data){
                 console.warn('config success!');
-                /*store.insert({
-                    id: 0,
+                store.insert({
                     name: "date_config",
                     value: new Date().valueOf()
                 });
                 store.insert({
-                    id: 1,
                     name: "dis_phone",
                     value: data.phone
                 });
                 store.insert({
-                    id: 2,
                     name: "discount",
                     value: data.discount
-                });*/
+                });
                 Taxi1.config.dis_phone  = data.phone;
                 Taxi1.config.discount   = data.discount;
                 Taxi1.app.router.register(":view", { view: "home" });
@@ -163,7 +167,7 @@ var store_data;
 
         }
     }*/
-//});
+});
 
 
 Globalize.culture(navigator.language || navigator.browserLanguage);

@@ -8,6 +8,7 @@
         "dis_email": "test@test.tt",
         "dis_phone": "+7123456789",
         "discount": "",
+        "store_actual_time" : 600000,
         "taxi_type": [{text : "vip"}, {text : "бизнес"}, {text : "эконом"}],
         "dis_email_content" :   'Пришёл новый заказ от клиента: <b>%name%</b><br /> \
                                 Уровень комфорта: %taxi_type%<br /> \
