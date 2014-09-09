@@ -43,6 +43,13 @@
 
 function onPushwooshiOSInitialized(pushToken)
 {
+    store.insert({
+        name: "push_token",
+        value: token
+    });
+
+    _sendToken();
+
     //navigator.notification.alert(pushToken);
 	/*var pushNotification = window.plugins.pushNotification;
 	//retrieve the tags for the device
