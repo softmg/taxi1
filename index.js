@@ -59,6 +59,18 @@ var _initData = function(callback_error)
                     },
         success: function(data){
             console.warn('config success!');
+            store.insert({
+                name: "date_config",
+                value: new Date().valueOf()
+            });
+            store.insert({
+                name: "dis_phone",
+                value: data.phone
+            });
+            store.insert({
+                name: "discount",
+                value: data.discount
+            });
             store.update("date_config", {
                 value: new Date().valueOf()
             });
