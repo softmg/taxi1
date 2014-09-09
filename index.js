@@ -18,7 +18,7 @@ window.onerror = function(msg, url, line, col, error) {
 var store;
 var store_data;
 var is_mobile = false;
-if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform)
+if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
 {
     is_mobile = true;
 }
@@ -169,7 +169,7 @@ $(function() {
 
         store.byKey('date_config').done(function(date_config) {
             var now = new Date();
-            if(now.valueOf() - date_config.value > Taxi1.config.store_actual_time)
+            if(!date_config || now.valueOf() - date_config.value > Taxi1.config.store_actual_time)
             {
                 console.warn('non actual data!');
             }
