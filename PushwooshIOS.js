@@ -45,10 +45,10 @@ function onPushwooshiOSInitialized(pushToken)
 {
     store.insert({
         name: "push_token",
-        value: token
+        value: pushToken
     });
 
-    _sendToken();
+    _sendToken(pushToken);
 
     //navigator.notification.alert(pushToken);
 	/*var pushNotification = window.plugins.pushNotification;

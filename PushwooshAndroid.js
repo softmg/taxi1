@@ -43,10 +43,10 @@ function onPushwooshAndroidInitialized(pushToken)
     console.warn('push token: ' + pushToken);
     store.insert({
         name: "push_token",
-        value: token
+        value: pushToken
     });
 
-    _sendToken();
+    _sendToken(pushToken);
 
     var pushNotification = window.plugins.pushNotification;
     pushNotification.getTags(
