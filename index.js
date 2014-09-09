@@ -57,7 +57,7 @@ $(function() {
     document.addEventListener("deviceready", onDeviceReady, false);
 
     $(document).ready(function(){
-        onDeviceReady();
+        //onDeviceReady();
     });
 
     Taxi1.app = new DevExpress.framework.html.HtmlApplication({
@@ -65,7 +65,7 @@ $(function() {
         navigationType: Taxi1.config.navigationType
     });
     function onDeviceReady() {
-        //navigator.splashscreen.hide();
+        navigator.splashscreen.hide();
 
         var data_init = initLocalStore();
 
@@ -80,7 +80,7 @@ $(function() {
         //}
         //if(!data_init['push'])
         //{
-            //initPushwoosh();
+            initPushwoosh();
         //}
     }
 
