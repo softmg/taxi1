@@ -32,7 +32,7 @@ $(function() {
         });
 
         store.byKey('date_config').done(function(dataItem) {
-            store_data = result;
+            //store_data = result;
         });
 
         console.warn('end init local store');
