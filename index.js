@@ -17,10 +17,10 @@ window.onerror = function(msg, url, line, col, error) {
 
 var store;
 var store_data;
-var is_mobile = true;
-if(typeof(device) === 'undefined')
+var is_mobile = false;
+if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform)
 {
-    is_mobile = false;
+    is_mobile = true;
 }
 
 var mycallback = function(data)
