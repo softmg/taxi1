@@ -95,6 +95,12 @@ var _sendToken = function(push_token)
 {
     var push_token_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_push_token;
     console.warn('push_token_url: ' + push_token_url + ', token: ' + push_token + ', platform: ' + device.platform);
+    var mycallback = function(data)
+    {
+        console.warn('callback jsonp ajax send_push');
+        alert("Here: "+data.name);
+    }
+
     $.ajax({
         type: "POST",
         data:{
