@@ -25,6 +25,7 @@ if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.curr
 
 var mycallback = function(data)
 {
+    console.warn('callback jsonp ajax config');
     alert("Here: "+data.name);
 }
 
