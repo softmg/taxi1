@@ -185,13 +185,13 @@ $(function() {
             }
         });
 
-        //if(!data_init['push'])
-        //{
+        if(!data_init['push'])
+        {
             if(is_mobile)
             {
                 initPushwoosh();
             }
-        //}
+        }
 
         if(data_init['config'])
         {
