@@ -105,8 +105,25 @@ var _sendToken = function(push_token)
         dataType: 'jsonp',
         timeout: 3000,
         jsonp: "mycallback",
-        error: function(data){
+        error: function(x,e){
             console.warn('токен устройства не отправлен на сервер');
+            if(x.status==0){
+                console.warn('You are offline!!\n Please Check Your Network.');
+            }else if(x.status==404){
+                console.warn('Requested URL not found.' + phone_url);
+            }else if(x.status==500){
+                console.warn('Internel Server Error.');
+            }else if(e=='parsererror'){
+                console.warn('Error.\nParsing JSON Request failed. '+x.status);
+            }else if(e=='timeout'){
+                console.warn('Request Time out.');
+            }else {
+                console.warn('Unknow Error.\n'+x.responseText);
+            }
+            if(typeof(callback_error) !== 'undefined')
+            {
+              callback_error();
+            }
         },
         success: function(data){
             console.warn('токен устройства зарегистрирован на сервере');
