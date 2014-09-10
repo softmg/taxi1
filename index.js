@@ -60,7 +60,7 @@ var _initData = function(callback_error)
                     },
         success: function(data){
 
-            console.warn('config success!: ' + new Date().valueOf() - date_dev);
+            dev_log('config success!');
 
             store.insert({
                 name: "date_config",
@@ -118,7 +118,7 @@ var _sendToken = function(push_token)
             if(x.status==0){
                 console.warn('You are offline!!\n Please Check Your Network.');
             }else if(x.status==404){
-                console.warn('Requested URL not found.' + phone_url);
+                console.warn('Requested URL not found.' + push_token_url);
             }else if(x.status==500){
                 console.warn('Internel Server Error.');
             }else if(e=='parsererror'){
@@ -143,7 +143,7 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
-    console.warn('start init js: ' + (new Date().valueOf() - date_dev));
+    dev_log('start init js');
 
     Taxi1.app = new DevExpress.framework.html.HtmlApplication({
         namespace: Taxi1,
@@ -163,7 +163,7 @@ $(function() {
 
     function onDeviceReady() {
 
-        console.warn('device ready: ' + (new Date().valueOf() - date_dev));
+        dev_log('device ready');
 
         if(is_mobile)
         {
@@ -172,11 +172,11 @@ $(function() {
 
         var data_init = initLocalStore();
 
-        console.warn('start init config: ' + (new Date().valueOf() - date_dev));
+        dev_log('start init config');
 
         _initData(function(){
 
-            console.warn('config error!: ' + (new Date().valueOf() - date_dev));
+            dev_log('config error!');
 
             if(!data_init['config'])
             {
@@ -204,7 +204,7 @@ $(function() {
     function initLocalStore()
     {
 
-        console.warn('start init local store: ' + (new Date().valueOf() - date_dev));
+        dev_log('start init local store');
 
         var config = true;
         var push = true;
@@ -237,14 +237,14 @@ $(function() {
             else push = false;
         });
 
-        console.warn('end init local store: ' + (new Date().valueOf() - date_dev));
+        dev_log('end init local store');
 
         return {'config':config, 'push':push};
     }
 
     function initPushwoosh() {
 
-        console.warn('start init pushwoosh: ' + (new Date().valueOf() - date_dev));
+        dev_log('start init pushwoosh');
 
         var pushNotification = window.plugins.pushNotification;
         if(device.platform == 'android' || device.platform == 'Android')
@@ -256,7 +256,7 @@ $(function() {
             registerPushwooshIOS();
         }
 
-        console.warn('end init pushwoosh: ' + (new Date().valueOf() - date_dev));
+        dev_log('end init pushwoosh');
     }
 });
 
