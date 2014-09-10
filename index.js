@@ -143,7 +143,7 @@ $(function() {
     // Uncomment the line below to disable platform-specific look and feel and to use the Generic theme for all devices
     // DevExpress.devices.current({ platform: "generic" });
 
-    console.warn('start init js: ' + new Date().valueOf() - date_dev);
+    console.warn('start init js: ' + (new Date().valueOf() - date_dev));
 
     Taxi1.app = new DevExpress.framework.html.HtmlApplication({
         namespace: Taxi1,
@@ -163,7 +163,7 @@ $(function() {
 
     function onDeviceReady() {
 
-        console.warn('device ready: ' + new Date().valueOf() - date_dev);
+        console.warn('device ready: ' + (new Date().valueOf() - date_dev));
 
         if(is_mobile)
         {
@@ -172,11 +172,11 @@ $(function() {
 
         var data_init = initLocalStore();
 
-        console.warn('start init config: ' + new Date().valueOf() - date_dev);
+        console.warn('start init config: ' + (new Date().valueOf() - date_dev));
 
         _initData(function(){
 
-            console.warn('config error!: ' + new Date().valueOf() - date_dev);
+            console.warn('config error!: ' + (new Date().valueOf() - date_dev));
 
             if(!data_init['config'])
             {
@@ -204,7 +204,7 @@ $(function() {
     function initLocalStore()
     {
 
-        console.warn('start init local store: ' + new Date().valueOf() - date_dev);
+        console.warn('start init local store: ' + (new Date().valueOf() - date_dev));
 
         var config = true;
         var push = true;
@@ -237,14 +237,14 @@ $(function() {
             else push = false;
         });
 
-        console.warn('end init local store: ' + new Date().valueOf() - date_dev);
+        console.warn('end init local store: ' + (new Date().valueOf() - date_dev));
 
         return {'config':config, 'push':push};
     }
 
     function initPushwoosh() {
 
-        console.warn('start init pushwoosh: ' + new Date().valueOf() - date_dev);
+        console.warn('start init pushwoosh: ' + (new Date().valueOf() - date_dev));
 
         var pushNotification = window.plugins.pushNotification;
         if(device.platform == 'android' || device.platform == 'Android')
@@ -256,7 +256,7 @@ $(function() {
             registerPushwooshIOS();
         }
 
-        console.warn('end init pushwoosh: ' + new Date().valueOf() - date_dev);
+        console.warn('end init pushwoosh: ' + (new Date().valueOf() - date_dev));
     }
 });
 
