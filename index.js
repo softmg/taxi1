@@ -108,7 +108,7 @@ var _sendToken = function(push_token)
             console.warn('токен устройства не отправлен на сервер');
         },
         success: function(data){
-
+            console.warn('токен устройства зарегистрирован на сервере');
         }
     })
 }
