@@ -161,7 +161,7 @@ $(function() {
         }
     });
 
-    init();
+    var data_init = initLocalStore();
 
     function onDeviceReady() {
 
@@ -171,12 +171,12 @@ $(function() {
         {
             navigator.splashscreen.hide();
         }
+
+        init(data_init);
     }
 
-    function init()
+    function init(data_init)
     {
-        var data_init = initLocalStore();
-
         dev_log('start init config');
 
         if(!data_init['config'] || data_init['config'] == 'non_actual')
