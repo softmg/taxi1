@@ -81,7 +81,7 @@
     }
 
     //trigger pending push notifications
-    pushNotification.onDeviceReady();
+    //pushNotification.onDeviceReady();
 
     pushNotification.register(
     function(token)

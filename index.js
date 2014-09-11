@@ -18,6 +18,9 @@ window.onerror = function(msg, url, line, col, error) {
 var store;
 var store_data;
 var is_mobile = false;
+
+var pushNotification;
+
 if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
 {
     is_mobile = true; //set false for emulator debug
@@ -255,7 +258,8 @@ $(function() {
 
         dev_log('start init push');
 
-        var pushNotification = window.plugins.pushNotification;
+        pushNotification = window.plugins.pushNotification;
+
         if(device.platform == 'android' || device.platform == 'Android')
         {
             registerPushAndroid();

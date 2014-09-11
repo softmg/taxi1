@@ -1,5 +1,5 @@
 ﻿function registerPushIOS() {
- 	var pushNotification = window.plugins.pushNotification;
+ 	//var pushNotification = window.plugins.pushNotification;
 
     // iOS
     var onNotificationAPN = function(event) {
@@ -43,7 +43,7 @@
 	);
 
 	//trigger pending push notifications
-	pushNotification.onDeviceReady();
+	//pushNotification.onDeviceReady();
 
 	//register for pushes.
 	pushNotification.register(
