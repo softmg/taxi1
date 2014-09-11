@@ -169,7 +169,10 @@ $(function() {
         {
             navigator.splashscreen.hide();
         }
+    }
 
+    function init()
+    {
         var data_init = initLocalStore();
 
         dev_log('start init config');
