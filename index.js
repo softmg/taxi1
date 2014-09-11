@@ -161,6 +161,8 @@ $(function() {
         }
     });
 
+    init();
+
     function onDeviceReady() {
 
         dev_log('device ready');
