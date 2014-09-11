@@ -1,8 +1,10 @@
-﻿function registerPushIOS() {
+﻿var onNotificationAPN;
+
+function registerPushIOS() {
  	//var pushNotification = window.plugins.pushNotification;
 
     // iOS
-    var onNotificationAPN = function(event) {
+    onNotificationAPN = function(event) {
 
         console.warn('onNotificationAPN');
 

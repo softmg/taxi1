@@ -1,4 +1,6 @@
-﻿function registerPushAndroid() {
+﻿var onNotificationGCM;
+
+function registerPushAndroid() {
     var pushNotification = window.plugins.pushNotification;
 
     //set push notifications handler
@@ -21,7 +23,7 @@
         }
     );
 
-    function onNotificationGCM(e) {
+    onNotificationGCM = function (e) {
         //$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
         console.warn('push notification: ' + e.event);
         switch( e.event )
