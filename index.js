@@ -193,11 +193,11 @@ $(function() {
             });
         }
 
-        if(!data_init['push'])
+        if(1 || !data_init['push'])
         {
             if(is_mobile)
             {
-                initPushwoosh();
+                initPush();
             }
         }
 
@@ -251,21 +251,21 @@ $(function() {
         return {'config':config, 'push':push};
     }
 
-    function initPushwoosh() {
+    function initPush() {
 
-        dev_log('start init pushwoosh');
+        dev_log('start init push');
 
         var pushNotification = window.plugins.pushNotification;
         if(device.platform == 'android' || device.platform == 'Android')
         {
-            registerPushwooshAndroid();
+            registerPushAndroid();
         }
         else
         {
-            registerPushwooshIOS();
+            registerPushIOS();
         }
 
-        dev_log('end init pushwoosh');
+        dev_log('end init push');
     }
 });
 
