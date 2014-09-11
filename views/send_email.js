@@ -16,11 +16,6 @@ Taxi1.send_email = function(params) {
         comment = ko.observable(''),
         taxi_type = ko.observable(taxi_type_ar[0]);
 
-
-    function viewShown() {
-        $("#nameInput").data("dxTextBox").focus();
-    }
-
     datetime_departure.optionChanged= function(e){
         alert(e);
     }
@@ -83,6 +78,59 @@ Taxi1.send_email = function(params) {
 
     }
 
+    function androidInputScroll(idScrollView) {
+        if (DevExpress.devices.real().platform === 'android') {
+            $("input[type='text']").focusin(function () {
+                var input = $(this);
+                /*var interval = setInterval(function () {
+                    var base = input.closest(".dx-scrollview-content").offset();
+
+                    $("#" + idScrollView).dxScrollView("instance").scrollTo(input.offset().top - base.top);
+                }, 200);
+                setTimeout(function () { clearInterval(interval); }, 1000);*/
+                setTimeout(function(){
+                       var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+                       scroller.update().then(function(){
+                               var base = input.closest(".dx-scrollview-content").offset();
+
+                               scroller.scrollTo(input.offset().top - base.top);
+                       });
+                }, 399);
+            });
+            $("textarea").focusin(function () {
+                var input = $(this);
+                setTimeout(function(){
+                    /*var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+                    var base = input.closest(".dx-scrollview-content").offset();
+
+                    $("#" + idScrollView).dxScrollView("instance").scrollTo(input.offset().top - base.top)*/
+                    var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+                    scroller.update().then(function(){
+                         var base = input.closest(".dx-scrollview-content").offset();
+
+                         scroller.scrollTo(input.offset().top - base.top);
+                    });
+                }, 399);
+            });
+        }
+    }
+
+    function onFormInput()
+    {
+
+    }
+
+    function viewShown() {
+        $("#nameInput").data("dxTextBox").focus();
+
+       var els = document.getElementsByTagName("input");
+       //var els = document.getElementsByClassName("at-textbox");
+       for (var i = 0; i < els.length; ++i) {
+           els[i].addEventListener("input", onFormInput);
+       }
+       androidInputScroll("newLogScrollView");
+       //appInsights.logPageView("NewLog");
+    }
 
     return {
         phone: 'tel:' + dis_phone,
