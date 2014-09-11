@@ -251,3 +251,9 @@
 .win8phone-layout.has-toolbar-bottom .layout-footer {
     height: 40px;
 }
+
+.img-logo{
+    margin: auto;
+    height: 40px;
+    padding: 2px;
+}

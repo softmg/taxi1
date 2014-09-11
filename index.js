@@ -20,7 +20,7 @@ var store_data;
 var is_mobile = false;
 if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
 {
-    is_mobile = true;
+    is_mobile = false; //set false for emulator debug, true otherwise
 }
 
 var mycallback = function(data)
