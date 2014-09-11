@@ -174,16 +174,19 @@ $(function() {
 
         dev_log('start init config');
 
-        _initData(function(){
+        if(!data_init['config'] || data_init['config'] == 'non_actual')
+        {
+            _initData(function(){
 
-            dev_log('config error!');
+                dev_log('config error!');
 
-            if(!data_init['config'])
-            {
-                Taxi1.app.router.register(":view", { view: "home_unactive" });
-                Taxi1.app.navigate();
-            }
-        });
+                if(!data_init['config'])
+                {
+                    Taxi1.app.router.register(":view", { view: "home_unactive" });
+                    Taxi1.app.navigate();
+                }
+            });
+        }
 
         if(!data_init['push'])
         {
@@ -219,6 +222,7 @@ $(function() {
             if(!date_config || now.valueOf() - date_config.value > Taxi1.config.store_actual_time)
             {
                 console.warn('non actual data!');
+                config = 'non_actual';
             }
         });
 
