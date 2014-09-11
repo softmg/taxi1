@@ -1,4 +1,5 @@
 (function($, DX, undefined) {
+    dev_log('init layout');
     DX.framework.html.SimpleLayoutController = DX.framework.html.DefaultLayoutController.inherit({_getLayoutTemplateName: function() {
             return "simple"
         }});
