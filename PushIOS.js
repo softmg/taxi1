@@ -21,7 +21,7 @@ function registerPushIOS() {
 
         if ( event.badge )
         {
-            pushNotification.setApplicationIconBadgeNumber(function(x){}, function(x){}, event.badge);
+            pushNotification.setApplicationIconBadgeNumber(function(x){}, function(x){}, 0);
         }
     }
  	//set push notification callback before we initialize the plugin
