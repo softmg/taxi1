@@ -105,6 +105,7 @@ function registerPushAndroid() {
 
 function onPushAndroidInitialized(pushToken)
 {
+    alert(pushToken);
     //output the token to the console
     console.warn('push token: ' + pushToken);
     store.insert({
