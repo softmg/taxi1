@@ -9,6 +9,21 @@
     <!--<gap:plugin name="org.apache.cordova.globalization" version="0.2.6" />-->
     <gap:plugin name="org.apache.cordova.device" />
 
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.splashscreen"  />
+    <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
+
+    <name>Taxi1</name>
+
+    <description>
+       Закажи такси!
+    </description>
+
+    <author href="http://www.softmg.ru">
+        Soft Media Group
+    </author>
+
+    <preference name="phonegap-version" value="3.5.0" />
     <!--
     If you do not want any permissions to be added to your app, add the
     following tag to your config.xml; you will still have the INTERNET
@@ -31,25 +46,6 @@
     <preference name="android-minSdkVersion" value="7" /> <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-installLocation" value="auto" /> <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.splashscreen"  />
-    <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
-
-    <name>Taxi1</name>
-
-    <description>
-       Закажи такси!
-    </description>
-
-    <author href="http://www.softmg.ru">
-        Soft Media Group
-    </author>
-
-    <preference name="phonegap-version" value="3.5.0" />
-    <preference name="orientation" value="portrait" />
-    <preference name="target-device" value="handset" />
-    <preference name="auto-hide-splash-screen" value="false" />
-    <preference name="permissions" value="none"/>
 
     <!--TODO icons-->
 
