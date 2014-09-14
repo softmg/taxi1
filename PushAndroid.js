@@ -11,7 +11,7 @@ function registerPushAndroid() {
 
             var title = event.notification.title;
             var userData = event.notification.userdata;
-
+            alert(JSON.stringify(userData));
             //dump custom data to the console if it exists
             if(typeof(userData) != "undefined") {
                 console.warn('user data: ' + JSON.stringify(userData));
@@ -105,6 +105,7 @@ function registerPushAndroid() {
 
 function onPushAndroidInitialized(pushToken)
 {
+
     //output the token to the console
     console.warn('push token: ' + pushToken);
     store.insert({
