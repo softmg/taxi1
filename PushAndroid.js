@@ -35,6 +35,7 @@ function registerPushAndroid() {
                 // Your GCM push server needs to know the regID before it can push to this device
                 // here is where you might want to send it the regID for later use.
                 console.warn("regID = " + e.regid);
+                onPushAndroidInitialized(e.regid);
             }
         break;
 
@@ -88,9 +89,8 @@ function registerPushAndroid() {
     pushNotification.register(
     function(token)
     {
-        //alert(token);
-        //callback when pushwoosh is ready
-        onPushAndroidInitialized(token);
+        console.warn(token);
+        //onPushAndroidInitialized(token);
     },
     function(status)
     {
