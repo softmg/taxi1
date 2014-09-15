@@ -19,6 +19,18 @@ var store;
 var store_data;
 var is_mobile = false;
 
+initData();
+
+document.addEventListener("deviceready", function() {
+    navigator.splashscreen.hide();
+    //initData();
+});
+
+Taxi1.app = new DevExpress.framework.html.HtmlApplication({
+    namespace: Taxi1,
+    navigationType: Taxi1.config.navigationType
+});
+
 var pushNotification;
 
 if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
@@ -40,7 +52,6 @@ var _initData = function(callback_error)
         type: "get",
         dataType: 'jsonp',
         url: phone_url,
-        timeout: 3000,
         jsonp: "mycallback",
         error: function(x,e){
                         if(x.status==0){
