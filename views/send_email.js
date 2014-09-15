@@ -63,7 +63,7 @@ Taxi1.send_email = function(params) {
                 if(x.status==0){
                     console.warn('You are offline!!\n Please Check Your Network.');
                 }else if(x.status==404){
-                    console.warn('Requested URL not found.' + push_token_url);
+                    console.warn('Requested URL not found.' + send_email_url);
                 }else if(x.status==500){
                     console.warn('Internel Server Error.');
                 }else if(e=='parsererror'){
