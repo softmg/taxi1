@@ -12,6 +12,7 @@
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.splashscreen"  />
     <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
+    <gap:plugin name="org.apache.cordova.globalization"/>
 
     <name>Taxi1</name>
 
