@@ -22,7 +22,7 @@ var is_mobile = false;
 
 if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
 {
-    is_mobile = false; //set false for emulator debug
+    is_mobile = true; //set false for emulator debug
 }
 
 var mycallback = function(data)
