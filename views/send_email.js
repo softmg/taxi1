@@ -24,14 +24,14 @@ Taxi1.send_email = function(params) {
 
         var datetime_departure_loc = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm' );
 
-        var date_dep_y = Globalize.format( datetime_departure(), 'yyyy-MM-ddTH:mm');
+        var date_dep_y = Globalize.format( datetime_departure(), 'yyyy-MM-ddTHH:mm');
 
         console.warn('дата отправки: ' + date_dep_y);
 
         var date_dep = new Date(date_dep_y);
         //var date_dep_gmt =  new Date(date_dep.valueOf() - date_dep.getTimezoneOffset() * 60000);
         var datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
-        
+
         console.warn('дата отправки скорректированная: ' + datetime_departure_loc2)
         /*navigator.globalization.getDatePattern(
             function (date) {alert('pattern: ' + date.utc_offset + '\n');},
