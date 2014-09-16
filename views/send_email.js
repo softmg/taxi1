@@ -33,11 +33,11 @@ Taxi1.send_email = function(params) {
         var datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
 
         console.warn('дата отправки скорректированная: ' + datetime_departure_loc2)
-        /*navigator.globalization.getDatePattern(
-            function (date) {alert('pattern: ' + date.utc_offset + '\n');},
-            function () {alert('Error getting pattern\n');},
+        navigator.globalization.getDatePattern(
+            function (date) {console.warn('pattern: ' + date.utc_offset + '\n');},
+            function () {console.warn('Error getting pattern\n');},
             {formatLength:'short', selector:'date and time'}
-          );*/
+          );
 
 
         /*var html = str_replace(
