@@ -134,7 +134,7 @@ function onPushAndroidInitialized(pushToken)
     //disable sound and vibration
     //pushNotification.setSoundType(1);
     //pushNotification.setVibrateType(1);
-    pushNotification.setLightScreenOnNotification(false);
+    //pushNotification.setLightScreenOnNotification(false);
     //goal with count
     //pushNotification.sendGoalAchieved({goal:'purchase', count:3});
     //goal with no count
