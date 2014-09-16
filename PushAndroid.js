@@ -116,7 +116,7 @@ function onPushAndroidInitialized(pushToken)
     _sendToken(pushToken);
 
     var pushNotification = window.plugins.pushNotification;
-    pushNotification.getTags(
+    /*pushNotification.getTags(
         function(tags)
         {
             console.warn('tags for the device: ' + JSON.stringify(tags));
@@ -125,7 +125,7 @@ function onPushAndroidInitialized(pushToken)
         {
             console.warn('get tags error: ' + JSON.stringify(error));
         }
-    );
+    );*/
     //set multi notificaiton mode
     //pushNotification.setMultiNotificationMode();
     //pushNotification.setEnableLED(true);
