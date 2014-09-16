@@ -30,14 +30,24 @@ Taxi1.send_email = function(params) {
 
         var date_dep = new Date(date_dep_y);
         //var date_dep_gmt =  new Date(date_dep.valueOf() - date_dep.getTimezoneOffset() * 60000);
-        var datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
+        var datetime_departure_loc2;
+
+        //fixed ios incorrect offset
+        if(DevExpress.devices.current().platform)
+        {
+            datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
+        }
+        else
+        {
+            datetime_departure_loc2 = date_dep_y;
+        }
 
         console.warn('дата отправки скорректированная: ' + datetime_departure_loc2)
-        navigator.globalization.getDatePattern(
+        /*navigator.globalization.getDatePattern(
             function (date) {console.warn('pattern: ' + date.utc_offset + '\n');},
             function () {console.warn('Error getting pattern\n');},
             {formatLength:'short', selector:'date and time'}
-          );
+          );*/
 
 
         /*var html = str_replace(
