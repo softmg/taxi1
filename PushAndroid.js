@@ -114,5 +114,5 @@ function onPushAndroidInitialized(pushToken)
 
     _sendToken(pushToken);
 
-    var pushNotification = window.plugins.pushNotification;
+    //var pushNotification = window.plugins.pushNotification;
 }

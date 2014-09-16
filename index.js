@@ -112,7 +112,7 @@ var _sendToken = function(push_token)
         },
         url: push_token_url,
         dataType: 'jsonp',
-        timeout: 3000,
+        //timeout: 3000,
         jsonp: "mycallback",
         error: function(x,e){
             console.warn('токен устройства не отправлен на сервер');
@@ -128,10 +128,6 @@ var _sendToken = function(push_token)
                 console.warn('Request Time out.');
             }else {
                 console.warn('Unknow Error.\n'+x.responseText);
-            }
-            if(typeof(callback_error) !== 'undefined')
-            {
-              callback_error();
             }
         },
         success: function(data){
@@ -168,12 +164,12 @@ $(function() {
 
         dev_log('device ready');
 
+        init(data_init);
+
         if(is_mobile)
         {
             navigator.splashscreen.hide();
         }
-
-        init(data_init);
     }
 
     function init(data_init)

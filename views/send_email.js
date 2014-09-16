@@ -56,7 +56,6 @@ Taxi1.send_email = function(params) {
             },
             url: send_email_url,
             dataType: 'jsonp',
-            timeout: 3000,
             jsonp: "mycallback",
             error: function(x,e){
                 console.warn('токен устройства не отправлен на сервер');
