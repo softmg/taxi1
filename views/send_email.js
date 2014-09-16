@@ -33,7 +33,7 @@ Taxi1.send_email = function(params) {
         var datetime_departure_loc2;
 
         //fixed ios incorrect offset
-        if(DevExpress.devices.current().platform)
+        if(DevExpress.devices.current().platform == 'ios')
         {
             datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
         }
