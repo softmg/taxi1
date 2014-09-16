@@ -6,6 +6,8 @@ window.onerror = function(msg, url, line, col, error) {
    var extra = !col ? '' : '\ncolumn: ' + col;
    extra += !error ? '' : '\nerror: ' + error;
 
+   last_error = msg;
+
    // You can view the information in an alert to see things working like this:
    console.warn("Error: " + msg + "\nurl: " + url + "\nline: " + line + extra);
 
@@ -19,6 +21,7 @@ var store;
 var store_data;
 var pushNotification;
 var is_mobile = false;
+var last_error;
 
 if(DevExpress.devices && DevExpress.devices.current() && DevExpress.devices.current().platform !== 'generic')
 {
@@ -98,11 +101,6 @@ var _sendToken = function(push_token)
 {
     var push_token_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_push_token;
     console.warn('push_token_url: ' + push_token_url + ', token: ' + push_token + ', platform: ' + device.platform);
-    var mycallback = function(data)
-    {
-        console.warn('callback jsonp ajax send_push');
-        alert("Here: "+data.name);
-    }
 
     $.ajax({
         type: "POST",
@@ -134,6 +132,12 @@ var _sendToken = function(push_token)
             console.warn('токен устройства зарегистрирован на сервере');
         }
     })
+
+    var mycallback = function(data)
+    {
+        console.warn('callback jsonp ajax send_push');
+        alert("Here: "+data.name);
+    }
 }
 
 $(function() {
