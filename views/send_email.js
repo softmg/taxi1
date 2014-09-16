@@ -39,7 +39,7 @@ Taxi1.send_email = function(params) {
         }
         else
         {
-            datetime_departure_loc2 = date_dep_y;
+            datetime_departure_loc2 = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm');
         }
 
         console.warn('дата отправки скорректированная: ' + datetime_departure_loc2)
