@@ -94,11 +94,11 @@ Taxi1.send_email = function(params) {
         })
     }
 
-    var mycallback = function(data)
+    /*var mycallback = function(data)
     {
         console.warn('callback jsonp ajax sendEmail');
         alert("Here: "+data.name);
-    }
+    }*/
 
 
     function call() {
