@@ -22,39 +22,32 @@ Taxi1.send_email = function(params) {
 
     function sendEmail() {
 
-        var datetime_departure_loc = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm' );
-
-        var date_dep_y = Globalize.format( datetime_departure(), 'yyyy-MM-ddTHH:mm');
-
-        console.warn('дата отправки: ' + date_dep_y);
-
-        var date_dep = new Date(date_dep_y);
-        //var date_dep_gmt =  new Date(date_dep.valueOf() - date_dep.getTimezoneOffset() * 60000);
-        var datetime_departure_loc2;
-
-        //fixed ios incorrect offset
-        if(DevExpress.devices.current().platform == 'ios')
+        if(typeof(datetime_departure()) != 'undefined')
         {
-            datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
+            var date_dep_y = Globalize.format( datetime_departure(), 'yyyy-MM-ddTHH:mm');
+
+            console.warn('дата отправки: ' + date_dep_y);
+
+            var date_dep = new Date(date_dep_y);
+            //var date_dep_gmt =  new Date(date_dep.valueOf() - date_dep.getTimezoneOffset() * 60000);
+            var datetime_departure_loc2;
+
+            //fixed ios incorrect offset
+            if(DevExpress.devices.current().platform == 'ios')
+            {
+                datetime_departure_loc2 = Globalize.format( date_dep, 'd MMMM yyyy H:mm' );
+            }
+            else
+            {
+                datetime_departure_loc2 = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm');
+            }
         }
         else
         {
-            datetime_departure_loc2 = Globalize.format( datetime_departure(), 'd MMMM yyyy H:mm');
+            datetime_departure_loc2 = '';
         }
 
-        console.warn('дата отправки скорректированная: ' + datetime_departure_loc2)
-        /*navigator.globalization.getDatePattern(
-            function (date) {console.warn('pattern: ' + date.utc_offset + '\n');},
-            function () {console.warn('Error getting pattern\n');},
-            {formatLength:'short', selector:'date and time'}
-          );*/
-
-
-        /*var html = str_replace(
-            ['%name%', '%taxi_type%', '%datetime_departure%', '%place_departure%', '%destination%', '%comment%'],
-            [name(), taxi_type().text, datetime_departure_loc, place_departure(), destination(), comment()],
-            dis_email_content
-        );*/
+        console.warn('дата отправки скорректированная: ' + datetime_departure_loc2);
 
         var send_email_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_send_email;
 
