@@ -1,7 +1,7 @@
 ﻿window.Taxi1 = $.extend(true, window.Taxi1, {
     "config": {
         "navigationType": "simple",
-        "backend_url": "http://taxi_backend/",
+        "backend_url": "http://test8.softmg.ru/",
         "backend_uri_phone": "config/phone",
         "backend_uri_send_email": "send_email",
         "backend_uri_push_token": "get_token",
