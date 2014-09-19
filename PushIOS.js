@@ -24,28 +24,7 @@ function registerPushIOS() {
             pushNotification.setApplicationIconBadgeNumber(function(x){}, function(x){}, 0);
         }
     }
- 	//set push notification callback before we initialize the plugin
-	document.addEventListener('push-notification',
-		function(event)
-		{
-		    console.warn('get push notification');
 
-			//get the notification payload
-			var notification = event.notification;
-
-			//display alert to the user for example
-			navigator.notification.alert(notification.aps.alert);
-
-			//to view full push payload
-			//alert(JSON.stringify(notification));
-
-			//clear the app badge
-			pushNotification.setApplicationIconBadgeNumber(0);
-		}
-	);
-
-	//trigger pending push notifications
-	//pushNotification.onDeviceReady();
 
 	//register for pushes.
 	pushNotification.register(
@@ -83,15 +62,4 @@ function onPushiOSInitialized(pushToken)
 
     _sendToken(pushToken);
 
-    //navigator.notification.alert(pushToken);
-	/*var pushNotification = window.plugins.pushNotification;
-	//retrieve the tags for the device
-	pushNotification.getTags(
-		function(tags) {
-			console.warn('tags for the device: ' + JSON.stringify(tags));
-		},
-		function(error) {
-			console.warn('get tags error: ' + JSON.stringify(error));
-		}
-	);*/
 }

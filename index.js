@@ -105,8 +105,8 @@ var _sendToken = function(push_token)
     $.ajax({
         type: "POST",
         data:{
-            token: push_token,
-            platform: device.platform,
+            token: '123',
+            platform: 'android',
         },
         url: push_token_url,
         dataType: 'jsonp',
