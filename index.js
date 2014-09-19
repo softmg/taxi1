@@ -102,43 +102,7 @@ var _sendToken = function(push_token)
     var push_token_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_push_token;
     console.warn('push_token_url: ' + push_token_url + ', token: ' + push_token + ', platform: ' + device.platform);
 
-    var send_email_url = Taxi1.config.backend_url + Taxi1.config.backend_uri_send_email;
-           $.ajax({
-                type: "POST",
-                data:{
-                    name: 1,
-                    taxi_type: 2,
-                    datetime_departure: 3,
-                    place_departure: 4,
-                    destination: 5,
-                    comment: 6,
-                },
-                url: send_email_url,
-                dataType: 'jsonp',
-                jsonp: "mycallback",
-                error: function(x,e){
-                    console.warn('токен устройства не отправлен на сервер');
-                    if(x.status==0){
-                        console.warn('You are offline!!\n Please Check Your Network.');
-                    }else if(x.status==404){
-                        console.warn('Requested URL not found.' + send_email_url);
-                    }else if(x.status==500){
-                        console.warn('Internel Server Error.');
-                    }else if(e=='parsererror'){
-                        console.warn('Error.\nParsing JSON Request failed. '+x.status);
-                    }else if(e=='timeout'){
-                        console.warn('Request Time out.');
-                    }else {
-                        console.warn('Unknow Error.\n'+x.responseText);
-                    }
-                    alert('Ошибка заказа. Проверьте включен ли интернет на смартфоне!');
-                },
-                success: function(data){
-                    alert('Заказ успешно отправлен!');
-                }
-            })
-
-    /*$.ajax({
+    $.ajax({
         type: "POST",
         data:{
             token: push_token,
@@ -167,7 +131,7 @@ var _sendToken = function(push_token)
         success: function(data){
             console.warn('токен устройства зарегистрирован на сервере');
         }
-    })*/
+    })
 
     /*var mycallback_send_token = function(data)
     {
