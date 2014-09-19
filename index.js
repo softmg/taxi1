@@ -198,24 +198,7 @@ $(function() {
         {
             if(is_mobile)
             {
-                //initPush();
-                  pushNotification.register(
-                    function(token)
-                    {
-                        console.warn(token);
-                        onPushiOSInitialized(token);
-                    },
-                    function(status)
-                    {
-                        //alert("failed to register: " + status);
-                        console.warn('failed to register: ' + status);
-                    },
-                    {
-                        "badge":"true",
-                        "sound":"true",
-                        "alert":"true",
-                        "ecb":"onNotificationAPN"
-                    });
+                initPush();
             }
         }
 
@@ -281,7 +264,23 @@ $(function() {
         }
         else
         {
-            registerPushIOS();
+            pushNotification.register(
+                                function(token)
+                                {
+                                    console.warn(token);
+                                    onPushiOSInitialized(token);
+                                },
+                                function(status)
+                                {
+                                    //alert("failed to register: " + status);
+                                    console.warn('failed to register: ' + status);
+                                },
+                                {
+                                    "badge":"true",
+                                    "sound":"true",
+                                    "alert":"true",
+                                    "ecb":"onNotificationAPN"
+                                });
         }
 
         dev_log('end init push');
