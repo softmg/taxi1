@@ -3,26 +3,6 @@
 function registerPushAndroid() {
     var pushNotification = window.plugins.pushNotification;
 
-    //set push notifications handler
-    document.addEventListener('push-notification',
-        function(event)
-        {
-            console.warn('push-notification event')
-
-            var title = event.notification.title;
-            var userData = event.notification.userdata;
-            alert(JSON.stringify(userData));
-            //dump custom data to the console if it exists
-            if(typeof(userData) != "undefined") {
-                console.warn('user data: ' + JSON.stringify(userData));
-            }
-            //and show alert
-            navigator.notification.alert(title);
-            //stopping geopushes
-            //pushNotification.stopGeoPushes();
-        }
-    );
-
     onNotificationGCM = function (e) {
         //$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
         console.warn('push notification: ' + e.event);

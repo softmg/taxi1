@@ -27,7 +27,7 @@ function registerPushIOS() {
 
 
 	//register for pushes.
-	pushNotification.register(
+	/*pushNotification.register(
             function(deviceToken)
             {
                 console.warn('registerDevice: ' + deviceToken);
@@ -43,7 +43,7 @@ function registerPushIOS() {
                 "sound":"true",
                 "alert":"true",
                 "ecb":"onNotificationAPN"
-            });
+            });*/
 	//reset badges on start
 	//pushNotification.setApplicationIconBadgeNumber(0);
 	pushNotification.setApplicationIconBadgeNumber(function(x){
