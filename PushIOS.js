@@ -47,11 +47,11 @@ function registerPushIOS() {
 
 	//reset badges on start
 	//pushNotification.setApplicationIconBadgeNumber(0);
-	pushNotification.setApplicationIconBadgeNumber(function(x){
+	/*pushNotification.setApplicationIconBadgeNumber(function(x){
 	        console.warn('success reset push badget')
 	    }, function(x){
 	        console.warn('error reset push badget: ' + x)
-	    }, 0);
+	    }, 0);*/
 }
 
 function onPushiOSInitialized(pushToken)
