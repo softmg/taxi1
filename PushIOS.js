@@ -27,23 +27,24 @@ function registerPushIOS() {
 
 
 	//register for pushes.
-	/*pushNotification.register(
-            function(deviceToken)
-            {
-                console.warn('registerDevice: ' + deviceToken);
-                onPushiOSInitialized(deviceToken);
-            },
-            function(status)
-            {
-                console.warn('failed to register : ' + status);
-                //alert(JSON.stringify(['failed to register ', status]));
-            },
-            {
-                "badge":"true",
-                "sound":"true",
-                "alert":"true",
-                "ecb":"onNotificationAPN"
-            });*/
+    pushNotification.register(
+    function(token)
+    {
+        console.warn(token);
+        onPushiOSInitialized(token);
+    },
+    function(status)
+    {
+        //alert("failed to register: " + status);
+        console.warn('failed to register: ' + status);
+    },
+    {
+        "badge":"true",
+        "sound":"true",
+        "alert":"true",
+        "ecb":"onNotificationAPN"
+    });
+
 	//reset badges on start
 	//pushNotification.setApplicationIconBadgeNumber(0);
 	pushNotification.setApplicationIconBadgeNumber(function(x){
