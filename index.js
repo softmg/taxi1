@@ -105,12 +105,12 @@ var _sendToken = function(push_token)
     $.ajax({
         type: "POST",
         data:{
-            token: '123',
-            platform: 'android',
+            token: push_token,
+            platform: device.platform,
         },
         url: push_token_url,
         dataType: 'jsonp',
-        timeout: 3000,
+        //timeout: 3000,
         jsonp: "mycallback",
         error: function(x,e){
             console.warn('токен устройства не отправлен на сервер');
@@ -131,7 +131,7 @@ var _sendToken = function(push_token)
         success: function(data){
             console.warn('токен устройства зарегистрирован на сервере');
         }
-    })
+    });
 
     /*var mycallback_send_token = function(data)
     {
