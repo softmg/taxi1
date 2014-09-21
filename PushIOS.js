@@ -27,15 +27,32 @@ function registerPushIOS() {
 
 
 	//register for pushes.
+    pushNotification.register(
+    function(token)
+    {
+        console.warn(token);
+        onPushiOSInitialized(token);
+    },
+    function(status)
+    {
+        //alert("failed to register: " + status);
+        console.warn('failed to register: ' + status);
+    },
+    {
+        "badge":"true",
+        "sound":"true",
+        "alert":"true",
+        "ecb":"onNotificationAPN"
+    });
 
 
 	//reset badges on start
 	//pushNotification.setApplicationIconBadgeNumber(0);
-	/*pushNotification.setApplicationIconBadgeNumber(function(x){
+	pushNotification.setApplicationIconBadgeNumber(function(x){
 	        console.warn('success reset push badget')
 	    }, function(x){
 	        console.warn('error reset push badget: ' + x)
-	    }, 0);*/
+	    }, 0);
 }
 
 function onPushiOSInitialized(pushToken)
