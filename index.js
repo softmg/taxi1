@@ -193,6 +193,12 @@ $(function() {
                 }
             });
         }
+        else
+        {
+            //to home
+            Taxi1.app.router.register(":view", { view: "home" });
+            Taxi1.app.navigate("home");
+        }
 
         if(1 || !data_init['push'])
         {
@@ -202,12 +208,7 @@ $(function() {
             }
         }
 
-        if(data_init['config'])
-        {
-            //to home
-            Taxi1.app.router.register(":view", { view: "home" });
-            Taxi1.app.navigate("home");
-        }
+
     }
 
     function initLocalStore()
