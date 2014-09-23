@@ -14,7 +14,7 @@
     <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
     <gap:plugin name="org.apache.cordova.globalization"/>
 
-    <name>Taxi1</name>
+    <name>AppleTaxi</name>
 
     <description>
        Закажи такси!
