@@ -125,9 +125,12 @@ Taxi1.send_email = function(params) {
                 var input = $(this);
                 input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
 
-                var base = input.closest(".dx-scrollview-content").offset();
+                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+                scroller.update().then(function(){
+                    var base = input.closest(".dx-scrollview-content").offset();
 
-                scroller.scrollTo(input.offset().top + base.top);
+                    scroller.scrollTo(input.offset().top + base.top);
+                });
             });
             $("textarea").focusin(function () {
                 var input = $(this);
@@ -136,6 +139,9 @@ Taxi1.send_email = function(params) {
                     var base = input.closest(".dx-scrollview-content").offset();
 
                     $("#" + idScrollView).dxScrollView("instance").scrollTo(input.offset().top - base.top)*/
+
+                    input.closest(".dx-scrollview-content").height(parseInt(input.closest(".dx-scrollview-content").attr('data-height')) + 100);
+
                     var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
                     scroller.update().then(function(){
                          var base = input.closest(".dx-scrollview-content").offset();
@@ -143,6 +149,18 @@ Taxi1.send_email = function(params) {
                          scroller.scrollTo(input.offset().top - base.top);
                     });
                 }, 399);
+            });
+
+            $("textarea").focusout(function () {
+                var input = $(this);
+                input.closest(".dx-scrollview-content").height(input.closest(".dx-scrollview-content").attr('data-height'));
+
+                var scroller = $(".dx-active-view .dx-scrollview").dxScrollView("instance");
+                scroller.update().then(function(){
+                    var base = input.closest(".dx-scrollview-content").offset();
+
+                    scroller.scrollTo(input.offset().top + base.top);
+                });
             });
         }
     }
