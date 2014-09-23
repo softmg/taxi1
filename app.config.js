@@ -7,7 +7,7 @@
         "backend_uri_push_token": "get_token",
         "backend_uri_all": "config/all",
         "dis_email": "test@test.tt",
-        "dis_phone": "+7123456789",
+        "dis_phone": "84997139191",
         "discount": "",
         "store_actual_time" : 600000,
         "push_token" : '',
