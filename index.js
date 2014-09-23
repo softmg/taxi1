@@ -90,6 +90,9 @@ var _initData = function(callback_error)
 
             Taxi1.config.dis_phone  = data.phone;
             Taxi1.config.discount   = data.discount;
+
+            dev_log('navigate');
+
             Taxi1.app.router.register(":view", { view: "home" });
             Taxi1.app.navigate("home");
         }
