@@ -10,6 +10,7 @@ Taxi1.send_email = function(params) {
     var format_date = Globalize.culture().calendar.patterns.d;
 
     var name = ko.observable(''),
+        user_phone = ko.observable(''),
         datetime_departure = ko.observable(),
         place_departure = ko.observable(''),
         destination = ko.observable(''),
@@ -55,6 +56,7 @@ Taxi1.send_email = function(params) {
             type: "POST",
             data:{
                 name: name(),
+                user_phone: user_phone(),
                 taxi_type: taxi_type().text,
                 datetime_departure: datetime_departure_loc2,
                 place_departure: place_departure(),
@@ -189,6 +191,7 @@ Taxi1.send_email = function(params) {
         format_date: format_date,
 
         name: name,
+        user_phone: user_phone,
         taxi_type_ar: taxi_type_ar,
         taxi_type: taxi_type,
         datetime_departure: datetime_departure,

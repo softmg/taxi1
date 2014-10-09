@@ -11,7 +11,7 @@
         "discount": "",
         "store_actual_time" : 600000,
         "push_token" : '',
-        "taxi_type": [{text : "эконом"},  {text : "бизнес"}, {text : "ком"}],
+        "taxi_type": [{text : "эконом"}, {text : "ком"},  {text : "бизнес"}],
         "dis_email_content" :   'Пришёл новый заказ от клиента: <b>%name%</b><br /> \
                                 Уровень комфорта: %taxi_type%<br /> \
                                 Дата и время выезда: %datetime_departure%<br /> \
