@@ -26,12 +26,12 @@ function registerPushIOS() {
     }
 
 
-    pushNotification.unregister(function(){
+    /*pushNotification.unregister(function(){
         dev_log('success unregister!');
     },
     function(){
         dev_log('error unregister!');
-    });
+    });*/
 
 	//register for pushes.
     pushNotification.register(
