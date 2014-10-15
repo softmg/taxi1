@@ -113,7 +113,7 @@ var _sendToken = function(push_token)
         },
         url: push_token_url,
         dataType: 'jsonp',
-        timeout: 3000,
+        //timeout: 3000,
         jsonp: "mycallback",
         error: function(x,e){
             console.warn('токен устройства не отправлен на сервер');
