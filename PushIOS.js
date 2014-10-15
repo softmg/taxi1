@@ -15,8 +15,8 @@ function registerPushIOS() {
 
         if ( event.sound )
         {
-            //var snd = new Media(event.sound);
-            //snd.play();
+            var snd = new Media(event.sound);
+            snd.play();
         }
 
         if ( event.badge )
